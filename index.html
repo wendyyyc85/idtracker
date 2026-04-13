@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Wendy ID tracker</title>
+<title>Wendy ID Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -55,6 +55,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 /* DAY SECTION */
 .day-section{margin-bottom:10px;}
 .day-header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--surface2);border-radius:8px;margin-bottom:6px;}
+.day-header.weekend-sat{background:#fff8ec;border-left:3px solid #f5d08a;}
+.day-header.weekend-sun{background:#fff8ec;border-left:3px solid #f5d08a;}
 .day-name{font-size:12px;font-weight:500;}
 .day-meta{display:flex;align-items:center;gap:8px;}
 .day-hrs{font-size:10px;font-family:'DM Mono',monospace;color:var(--text2);}
@@ -152,7 +154,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 <div class="hdr">
   <div class="hdr-top">
     <div>
-      <div class="app-name">室內設計轉職</div>
+      <div class="app-name">Wendy ID Tracker</div>
       <div class="app-sub" id="hdr-sub">進度追蹤</div>
     </div>
     <div class="wnav">
@@ -230,8 +232,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 
 const WEEKS = [
 {
-  id:0, label:"4/13-18", phase:"四月 · 本週平日", isModel:false, totalHrs:"零碎時間",
-  title:"安裝軟體 · 靈感板建立 · 案子1初步構想",
+  id:0, label:"W1", dateRange:"4/13 – 4/19", phase:"四月 · 第一週", isModel:false, totalHrs:"平日零碎 + 週末約 7 hr",
+  title:"安裝軟體 · 靈感板建立 · AutoCAD 手感回來",
   days:[
     { day:"4/14（二）", hrs:"20-30 min", tasks:[
       {type:"cad", title:"安裝 AutoCAD 試用版", hrs:"15 min", detail:"去 Autodesk 官網下載 AutoCAD 試用版（免費30天），安裝好後開啟，確認介面正常。同時打開 SketchUp Free（sketchup.com），登入帳號，確認兩個軟體都能用。"},
@@ -244,97 +246,85 @@ const WEEKS = [
       {type:"port", title:"繼續蒐集靈感 + 觀察共同點", hrs:"20 min", detail:"再存 10 張照片，這次開始注意：你喜歡的圖有什麼共同點？偏暖色還是冷色？木質感還是金屬感？簡潔還是豐富？在備忘錄記下 3 個你發現的自己的偏好。"}
     ]},
     { day:"4/17（五）", hrs:"20-30 min", tasks:[
-      {type:"port", title:"案子1 初步構想", hrs:"20 min", detail:"在手機備忘錄寫下作品集案子1的直覺想法：想做什麼空間類型（套房？客廳？）、大概是什麼感覺、給誰住？不需要確定，先把腦子裡的直覺寫出來，之後週末再深化。"}
-    ]}
-  ]
-},
-{
-  id:1, label:"4/19-20", phase:"四月 · 第一個週末", isModel:false, totalHrs:"約 7 hr",
-  title:"AutoCAD 手感回來 · SketchUp 建立盒子 · 靈感分析",
-  days:[
-    { day:"4/19（六）", hrs:"3.5 hr", tasks:[
+      {type:"port", title:"案子1 初步構想", hrs:"20 min", detail:"在手機備忘錄寫下作品集案子1的直覺想法：想做什麼空間類型、大概是什麼感覺、給誰用？不需要確定，先把腦子裡的直覺寫出來，之後週末再深化。"}
+    ]},
+    { day:"4/18（六）", hrs:"3.5 hr", tasks:[
       {type:"cad", title:"AutoCAD 跟著教學操作", hrs:"2 hr", detail:"跟著 CAD CAM Tutorials「AutoCAD Interior Design Tutorial for Beginners」第一集開始，一定要跟著畫，不要只看。目標：Line（直線）、Offset（偏移）、Trim（修剪）這三個指令用起來不需要查。畫完一個 3×4m 的空白房間框。"},
       {type:"sku", title:"SketchUp 空白盒子", hrs:"1.5 hr", detail:"跟著 The SketchUp Essentials 入門影片，建一個 5m×4m×2.8m 的空白盒子。重點感受：推拉工具（Push/Pull）、視角旋轉（滑鼠中鍵）、捲尺工具輸入尺寸。完成後從不同角度看看你的盒子。"}
     ]},
-    { day:"4/20（日）", hrs:"3.5 hr", tasks:[
+    { day:"4/19（日）", hrs:"3.5 hr", tasks:[
       {type:"cad", title:"AutoCAD 自己重畫一遍", hrs:"2 hr", detail:"不看教學，把昨天的 AutoCAD 房間重新畫一次。卡住才查，不要邊看邊畫。這個「自己重做」的動作才是真正建立記憶的關鍵。如果畫完還有時間，試著在牆上開一個門洞（用 Arc 指令畫門弧）。"},
       {type:"port", title:"靈感圖風格分析", hrs:"1.5 hr", detail:"從 Pinterest 靈感板挑出最喜歡的 3 張圖，各用 2-3 句話寫下為什麼喜歡：是色彩？材質？比例？光線感？這是在練習用語言描述設計感受，也是之後寫設計說明的基礎。寫完存到備忘錄。"}
     ]}
   ]
 },
 {
-  id:2, label:"4/21-25", phase:"四月 · 第二週平日", isModel:false, totalHrs:"零碎時間",
-  title:"深化靈感 · 確定案子1屋主設定",
+  id:1, label:"W2", dateRange:"4/20 – 4/26", phase:"四月 · 第二週", isModel:false, totalHrs:"平日零碎 + 週末約 7 hr",
+  title:"深化靈感 · 屋主設定 · AutoCAD 加深",
   days:[
-    { day:"4/21（一）", hrs:"20-30 min", tasks:[
-      {type:"cad", title:"預習下週 CAD 內容", hrs:"20 min", detail:"在 YouTube 搜尋「AutoCAD layers tutorial interior design」，看一支 10-15 分鐘的影片了解圖層（Layer）概念。不用跟著操作，只是先在腦子裡有印象，週六才不會生疏。"}
+    { day:"4/20（一）", hrs:"20-30 min", tasks:[
+      {type:"cad", title:"預習下週 CAD 內容", hrs:"20 min", detail:"在 YouTube 搜尋「AutoCAD layers tutorial interior design」，看一支 10-15 分鐘的影片了解圖層（Layer）概念。不用跟著操作，只是先在腦子裡有印象，週末才不會生疏。"}
     ]},
-    { day:"4/22（二）", hrs:"20-30 min", tasks:[
-      {type:"port", title:"蒐集案子1方向靈感", hrs:"20 min", detail:"根據上週末的初步構想，在 Pinterest 找 10 張更符合那個方向的參考圖。比如你想做北歐風套房，就搜尋更具體的關鍵字，例如：「Nordic bedroom small apartment」、「Scandinavian studio apartment」。"}
+    { day:"4/21（二）", hrs:"20-30 min", tasks:[
+      {type:"port", title:"蒐集案子1方向靈感", hrs:"20 min", detail:"根據上週末的初步構想，在 Pinterest 找 10 張更符合那個方向的參考圖。比如你想做某個風格，就搜尋更具體的關鍵字。"}
     ]},
-    { day:"4/23（三）", hrs:"20-30 min", tasks:[
-      {type:"port", title:"案子1 屋主設定（定人三問）", hrs:"20 min", detail:"在備忘錄用「定人三問」寫出案子1的虛構屋主：① 他幾歲、做什麼工作？② 平日怎麼使用這個空間（早晨、下班後、週末）？③ 他最在乎家裡的什麼感覺？寫成 50-80 字的人物描述，這會是你所有設計決策的出發點。"},
+    { day:"4/22（三）", hrs:"20-30 min", tasks:[
+      {type:"port", title:"案子1 屋主設定（定人三問）", hrs:"20 min", detail:"在備忘錄用「定人三問」寫出案子1的虛構屋主：① 他幾歲、做什麼工作？② 平日怎麼使用這個空間（早晨、下班後、週末）？③ 他最在乎家裡的什麼感覺？寫成 50-80 字的人物描述，這會是你所有設計決策的出發點。"}
     ]},
-    { day:"4/24（四）", hrs:"20-30 min", tasks:[
+    { day:"4/23（四）", hrs:"20-30 min", tasks:[
       {type:"port", title:"根據屋主設定精選參考圖", hrs:"20 min", detail:"回顧你的屋主描述，從靈感板裡挑出最符合那個人的生活感的 5 張圖，建立一個「案子1 核心參考」的專屬分類。這 5 張就是你的 Mood Board 核心。"}
     ]},
-    { day:"4/25（五）", hrs:"20-30 min", tasks:[
-      {type:"port", title:"整理本週想法，準備週末", hrs:"20 min", detail:"回顧這週的備忘錄：屋主設定寫好了嗎？5 張核心參考圖選好了嗎？在備忘錄新增一條「案子1 設計方向」，用一句話寫下你的設計核心，例如：「一個讓獨居女生下班後完全放鬆的暖調空間」。這句話之後會是作品集的設計說明。"}
-    ]}
-  ]
-},
-{
-  id:3, label:"4/26-27", phase:"四月 · 第二個週末", isModel:false, totalHrs:"約 7 hr",
-  title:"AutoCAD 加深 · SketchUp 開門洞 · 案子1草圖",
-  days:[
-    { day:"4/26（六）", hrs:"3.5 hr", tasks:[
+    { day:"4/24（五）", hrs:"20-30 min", tasks:[
+      {type:"port", title:"整理本週想法，準備週末", hrs:"20 min", detail:"回顧這週的備忘錄：屋主設定寫好了嗎？5 張核心參考圖選好了嗎？在備忘錄新增一條「案子1 設計方向」，用一句話寫下你的設計核心。"}
+    ]},
+    { day:"4/25（六）", hrs:"3.5 hr", tasks:[
       {type:"cad", title:"AutoCAD 加入圖層概念", hrs:"2.5 hr", detail:"在上週的房間基礎上，學圖層（Layer）：建立「牆體」和「門窗」兩個圖層，設定不同顏色。在房間裡加入一扇門（90cm）和一扇窗（120cm），分別放在對應圖層。不用標尺寸，先感受圖層管理的邏輯。"},
       {type:"sku", title:"SketchUp 開門洞", hrs:"1 hr", detail:"在上週的盒子上開一個門洞：在牆面上用矩形畫出門的輪廓（90cm×210cm），然後用 Push/Pull 穿透牆體。感受這個「從 2D 到 3D」的操作邏輯，這是 SketchUp 最核心的建模方式。"}
     ]},
-    { day:"4/27（日）", hrs:"3.5 hr", tasks:[
-      {type:"port", title:"案子1 手繪配置草圖", hrs:"2 hr", detail:"拿一張 A4 白紙，根據你的屋主設定，徒手畫出案子1的初版平面配置。不需要比例尺，不需要精準，就是把腦子裡的空間想法畫出來。試 2-3 種不同的家具擺法，看哪種最符合你的設計方向。這是你五月在 AutoCAD 畫圖的藍圖。"},
-      {type:"port", title:"整理四月成果，準備五月", hrs:"1.5 hr", detail:"把這整個月的東西整理好：① 手繪草圖拍照存檔；② 案子1 屋主設定＋設計方向文字存好；③ Pinterest 靈感板整理完整；④ AutoCAD 和 SketchUp 練習檔存好。建立資料夾「/作品集/案子1/」，把素材分類放入。五月第一天打開電腦就有東西可以直接推進。"}
+    { day:"4/26（日）", hrs:"3.5 hr", tasks:[
+      {type:"port", title:"案子1 手繪配置草圖", hrs:"2 hr", detail:"拿一張 A4 白紙，根據你的屋主設定，徒手畫出案子1的初版平面配置。不需要比例尺，不需要精準，就是把腦子裡的空間想法畫出來。試 2-3 種不同的家具擺法，看哪種最符合你的設計方向。"},
+      {type:"draw", title:"靈感板整理 + 設計方向確認", hrs:"1.5 hr", detail:"把這週所有的靈感圖、屋主設定、草圖整理好，用一句話確認案子1 的設計核心方向。這句話之後會是作品集的設計說明起點。"}
     ]}
   ]
 },
 {
-  id:1, label:"第1週", phase:"五月 · 設計發展", isModel:false, totalHrs:"約 26 hr/週",
-  title:"案例分析啟動 · CAD 基礎回溫 · 手繪分析圖符號",
+  id:2, label:"W3", dateRange:"4/27 – 5/3", phase:"四月底 · 五月準備週", isModel:false, totalHrs:"平日 2-3 hr + 週末約 7 hr",
+  title:"五月準備 · 案例分析啟動 · CAD 圖層深化",
   days:[
-    { day:"週一", hrs:"2.5 hr", tasks:[
-      {type:"cad", title:"AutoCAD 基礎指令回溫", hrs:"1 hr", detail:"Line、Offset、Trim、Extend 複習。目標：不需要查指令就能畫。練習題：畫一個 10m×15m 的建築量體輪廓，加入牆厚（30cm）。"},
-      {type:"port", title:"案例分析：選案", hrs:"1.5 hr", detail:"在 ArchDaily、Dezeen 找 2-3 個你喜歡的案子（建築類型不限，選讓你有感覺的）。先不分析，把案子存好，仔細看圖、讀文字，讓自己先沉浸在設計裡。記下第一眼的直覺感受。"}
+    { day:"4/27（一）", hrs:"2-2.5 hr", tasks:[
+      {type:"cad", title:"AutoCAD 圖層系統完整設定", hrs:"1 hr", detail:"建立完整圖層體系：牆體、開口（門窗）、柱子、標註、基地、景觀。設定各圖層顏色與線型，這套圖層之後整個作品集都會用到。"},
+      {type:"port", title:"案例分析：選案開始", hrs:"1 hr", detail:"在 ArchDaily、Dezeen 找 2-3 個你喜歡的建築案子（類型不限，選讓你有感覺的）。先不分析，把案子存好，仔細看圖、讀文字，讓自己先沉浸在設計裡。記下第一眼的直覺感受。"}
     ]},
-    { day:"週二", hrs:"2.5 hr", tasks:[
-      {type:"draw", title:"手繪分析圖符號：線條與箭頭", hrs:"1 hr", detail:"分析圖不是透視圖，是用圖解語言說明設計邏輯。練習常用符號：動線箭頭（粗細代表主次）、區域泡泡（bubble diagram）、視線錐、日照方向標。每個符號畫 20 遍。"},
-      {type:"port", title:"案例分析：平面邏輯分析", hrs:"1.5 hr", detail:"取其中一個案子的平面圖，手繪描出來，用顏色標出：公共區域、私密區域、動線、服務空間。問自己：設計師為什麼這樣分區？這個決策背後的邏輯是什麼？"}
+    { day:"4/28（二）", hrs:"2-2.5 hr", tasks:[
+      {type:"draw", title:"手繪分析圖符號：線條與箭頭", hrs:"1 hr", detail:"練習常用分析圖符號：動線箭頭（粗細代表主次）、區域泡泡（bubble diagram）、視線錐、日照方向標。每個符號畫 20 遍。"},
+      {type:"port", title:"案例分析：平面邏輯分析", hrs:"1 hr", detail:"取其中一個案子的平面圖，手繪描出來，用顏色標出：公共區域、私密區域、動線、服務空間。問自己：設計師為什麼這樣分區？"}
     ]},
-    { day:"週三", hrs:"2.5 hr", tasks:[
-      {type:"cad", title:"AutoCAD 圖層系統建立", hrs:"1 hr", detail:"建立建築設計常用的圖層體系：牆體、開口（門窗）、柱子、標註、基地、景觀。設定各圖層顏色與線型，這套圖層之後整個作品集都會用到。"},
-      {type:"port", title:"案例分析：剖面與空間感分析", hrs:"1.5 hr", detail:"找同一個案子的剖面圖，分析：空間高度如何變化？不同區域的天花板高度差異傳達什麼感覺？有沒有夾層或挑高？手繪標出來並寫 2-3 句心得。"}
+    { day:"4/29（三）", hrs:"2-2.5 hr", tasks:[
+      {type:"cad", title:"AutoCAD 基地配置圖練習", hrs:"1 hr", detail:"找一張你喜歡的建築案子的配置圖（site plan），在 AutoCAD 中臨摹：建築量體輪廓、基地邊界、道路、景觀範圍。先練手感。"},
+      {type:"port", title:"案例分析：剖面與空間感", hrs:"1 hr", detail:"找同一個案子的剖面圖，分析：空間高度如何變化？不同區域的天花板高度差異傳達什麼感覺？手繪標出來並寫 2-3 句心得。"}
     ]},
-    { day:"週四", hrs:"2.5 hr", tasks:[
-      {type:"draw", title:"手繪分析圖符號：場地與環境", hrs:"1 hr", detail:"練習基地分析常用符號：風向箭頭、日照路徑（弧線）、噪音來源（波浪線）、景觀視線（虛線）、人行流量（粗細不同的線）。這些是基地分析圖的基本語言。"},
-      {type:"port", title:"案例分析：立面與材料分析", hrs:"1.5 hr", detail:"分析同一個案子的立面：建築用了哪些材料？開口的比例和節奏是什麼？立面有沒有傳達什麼概念？手繪立面簡圖並標注材料和設計重點。"}
+    { day:"4/30（四）", hrs:"2-2.5 hr", tasks:[
+      {type:"draw", title:"手繪分析圖符號：場地與環境", hrs:"1 hr", detail:"練習基地分析常用符號：風向箭頭、日照路徑（弧線）、噪音來源（波浪線）、景觀視線（虛線）、人行流量（粗細不同的線）。"},
+      {type:"port", title:"案例分析：立面與材料分析", hrs:"1 hr", detail:"分析同一個案子的立面：建築用了哪些材料？開口的比例和節奏是什麼？手繪立面簡圖並標注材料和設計重點。"}
     ]},
-    { day:"週五", hrs:"2 hr", tasks:[
-      {type:"draw", title:"本週手繪整理", hrs:"45 min", detail:"把這週畫的分析圖符號整理到一張 A4 的「分析圖符號速查表」，之後畫基地分析、案例分析都會用到，貼在桌上備用。"},
-      {type:"cad", title:"CAD 本週圖檔整理", hrs:"1 hr", detail:"把練習圖和圖層模板存好，建立資料夾結構：/作品集/案子1/CAD/、/案例分析/。這個結構之後不要再改。"}
+    { day:"5/1（五）", hrs:"2-2.5 hr", tasks:[
+      {type:"port", title:"案例分析：整體設計邏輯整理", hrs:"1 hr", detail:"把這幾天分析的案子整理成一份筆記：這個設計最打動你的是什麼？設計師用了什麼手法回應基地或使用者？用 3-5 點條列，之後做自己的設計時可以參考。"},
+      {type:"draw", title:"手繪整理：本週符號速查表", hrs:"45 min", detail:"把 4/28 到今天練習的所有分析圖符號整理到一張 A4 的「分析圖符號速查表」，之後畫基地分析、案例分析都會用到，貼在桌上備用。"}
     ]},
-    { day:"週六", hrs:"6-7 hr", tasks:[
+    { day:"5/2（六）", hrs:"6-7 hr", tasks:[
       {type:"port", title:"案例分析：第2個案子深度分析", hrs:"3 hr", detail:"對第2個案子做完整手繪分析：① 平面分區圖（bubble diagram）② 動線分析圖 ③ 剖面空間感素描 ④ 立面材料分析。每張圖都寫 1-2 句設計觀察。"},
-      {type:"cad", title:"AutoCAD 基地配置圖練習", hrs:"2 hr", detail:"找一張你喜歡的建築案子的配置圖（site plan），在 AutoCAD 中臨摹：建築量體輪廓、基地邊界、道路、景觀範圍。這是作品集中最先要畫的圖，先練手感。"},
-      {type:"draw", title:"室內立面符號練習", hrs:"1 hr", detail:"建築設計也要會室內立面。畫門（單扇90cm、雙扇180cm）、窗（各種開法）、樓梯（俯視和立面）的標準畫法。每個畫10遍。"}
+      {type:"cad", title:"AutoCAD 深化練習", hrs:"2 hr", detail:"畫一個有門有窗的完整房間，確認圖層設定正確，練習 Offset 牆厚、Arc 畫門弧、圖層切換。目標：這些動作都不需要查指令。"},
+      {type:"draw", title:"手繪符號速查表整理", hrs:"1 hr", detail:"把這週畫的分析圖符號整理到一張 A4 的「分析圖符號速查表」，之後畫基地分析、案例分析都會用到，貼在桌上備用。"}
     ]},
-    { day:"週日", hrs:"6-7 hr", tasks:[
-      {type:"port", title:"案例分析：整理成可展示格式", hrs:"3 hr", detail:"把這週的案例分析整理成作品集頁面初稿：每個案子 1 頁，包含案子照片、你的分析圖（掃描或拍照）、文字重點。用 Canva 或直接手繪版面都可以。"},
-      {type:"draw", title:"一點透視：建築外部空間練習", hrs:"2 hr", detail:"建築設計的透視圖比室內更注重空間尺度感。練習一點透視：消點設定、視平線高度（人視角約1.5m）、建築量體的基本比例。畫一個簡單的室外廣場空間。"},
-      {type:"model", title:"無機能模型材料準備", hrs:"1 hr", detail:"準備做無機能模型的材料：灰紙板（3mm和5mm各一包）、美工刀、切割墊、白膠、金屬尺。同時思考：無機能模型要探索什麼？光線？動線？高差？量體關係？先在腦子裡有個方向。"}
+    { day:"5/3（日）", hrs:"6-7 hr", tasks:[
+      {type:"port", title:"案例分析整理成展示頁", hrs:"3 hr", detail:"把這週的案例分析整理成作品集頁面初稿：每個案子 1 頁，包含案子照片、你的分析圖（掃描或拍照）、文字重點。用 Canva 或直接手繪版面都可以。"},
+      {type:"model", title:"無機能模型材料準備", hrs:"1 hr", detail:"準備做無機能模型的材料：灰紙板（3mm和5mm各一包）、美工刀、切割墊、白膠、金屬尺。同時思考：無機能模型要探索什麼？光線？動線？高差？量體關係？先在腦子裡有個方向。"},
+      {type:"draw", title:"一點透視：建築外部空間練習", hrs:"2 hr", detail:"練習一點透視：消點設定、視平線高度（人視角約1.5m）、建築量體的基本比例。畫一個簡單的室外廣場空間。"}
     ]}
   ]
 },
 {
-  id:2, label:"第2週", phase:"五月 · 設計發展", isModel:false, totalHrs:"約 26 hr/週",
+  id:3, label:"W4", dateRange:"5/4 – 5/10", phase:"五月 · 設計發展", isModel:false, totalHrs:"約 26 hr/週",
   title:"基地分析 · 無機能模型啟動 · 手繪分析圖練習",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -360,7 +350,7 @@ const WEEKS = [
     { day:"週六", hrs:"6-7 hr", tasks:[
       {type:"model", title:"無機能模型：深化探索", hrs:"3 hr", detail:"把上週的排列試驗繼續發展：選一個最有感覺的量體關係，嘗試做得更精確一點。開始思考：這個空間關係如果變成一個建築，它會是什麼感覺？光線從哪裡進來？人在裡面怎麼移動？"},
       {type:"cad", title:"AutoCAD 建築平面圖概念練習", hrs:"2 hr", detail:"找一個你分析過的案子，臨摹它的一層平面圖（選最有設計感的一層）。練習建築平面的畫法：柱子用實心方塊、牆體用雙線、樓梯用標準畫法。"},
-      {type:"draw", title:"一點透視：建築外部空間", hrs:"1 hr", detail:"用一點透視畫一個建築外部廣場或入口空間，加入建築量體、地面鋪面、人的比例（1.7m）、樹木。重點練習：人在外部空間時的視角感受和尺度感。"}
+      {type:"draw", title:"一點透視：建築外部空間", hrs:"1 hr", detail:"用一點透視畫一個建築外部廣場或入口空間，加入建築量體、地面鋪面、人的比例（1.7m）、樹木。"}
     ]},
     { day:"週日", hrs:"6-7 hr", tasks:[
       {type:"port", title:"基地分析整理成展示頁", hrs:"3 hr", detail:"把基地分析整理成作品集頁面：① 基地位置圖（衛星圖或地圖）② 周邊環境照片 ③ 手繪分析圖（日照、風向、動線、視線）④ 限制與機會條列。Canva 排版，這頁是作品集的第二部分。"},
@@ -370,7 +360,7 @@ const WEEKS = [
   ]
 },
 {
-  id:3, label:"第3週", phase:"五月 · 設計發展", isModel:true, totalHrs:"約 28 hr/週",
+  id:3, label:"W5", dateRange:"5/11 – 5/17", phase:"五月 · 設計發展", isModel:true, totalHrs:"約 28 hr/週",
   title:"無機能模型完成 · 概念確立 · 手繪概念草圖 ＋ 模型週",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -393,7 +383,7 @@ const WEEKS = [
       {type:"draw", title:"手繪整理", hrs:"45 min", detail:"整理這週的概念草圖，挑出最能說明你設計想法的 3 張，這些之後會進作品集的「設計過程」頁面。"},
       {type:"cad", title:"CAD 整理", hrs:"1 hr", detail:"整理 CAD 配置圖，確認基地比例正確，建築量體位置合理。"}
     ]},
-    { day:"週六（模型主力日）", hrs:"7-8 hr", tasks:[
+    { day:"週六", hrs:"7-8 hr", tasks:[
       {type:"model", title:"模型：概念模型深化完成", hrs:"6 hr", detail:"把概念模型做得更精確：① 確認各空間量體的大小比例 ② 開口（門窗）的位置 ③ 室外空間的位置 ④ 主要動線。完成後拍照（多角度、不同視點），記錄設計決策。"},
       {type:"draw", title:"手繪：室外空間透視草圖", hrs:"1.5 hr", detail:"畫一張從人的視角看建築入口的透視草圖。建築外部空間的透視圖是作品集的重要頁面，現在開始練習。重點：建築量體的比例感、人的尺度（1.7m）、天空和地面的關係。"}
     ]},
@@ -405,7 +395,7 @@ const WEEKS = [
   ]
 },
 {
-  id:4, label:"第4週", phase:"五月 · 設計發展", isModel:false, totalHrs:"約 26 hr/週",
+  id:4, label:"W6", dateRange:"5/18 – 5/24", phase:"五月 · 設計發展", isModel:false, totalHrs:"約 26 hr/週",
   title:"初版平面發展 · CAD 建築圖面 · 手繪剖面透視",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -439,7 +429,7 @@ const WEEKS = [
     ]}
   ]
 },
-{  id:5, label:"第5週", phase:"六月 · 圖面深化", isModel:false, totalHrs:"約 26 hr/週",
+{  id:5, label:"W7", dateRange:"5/25 – 6/1", phase:"六月 · 圖面深化", isModel:false, totalHrs:"約 26 hr/週",
   title:"CAD 全套圖面 · SketchUp 建模啟動 · 立面透視練習",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -474,7 +464,7 @@ const WEEKS = [
   ]
 },
 {
-  id:6, label:"第6週", phase:"六月 · 圖面深化", isModel:true, totalHrs:"約 28 hr/週",
+  id:6, label:"W8", dateRange:"6/2 – 6/8", phase:"六月 · 圖面深化", isModel:true, totalHrs:"約 28 hr/週",
   title:"CAD 全套圖面完成 · SketchUp 深化 · 設計模型週",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -497,18 +487,18 @@ const WEEKS = [
       {type:"draw", title:"手繪整理", hrs:"45 min", detail:"整理本週手繪，確認剖面圖和立面圖的比例正確，人的比例（1.7m）是否一致。"},
       {type:"cad", title:"六月圖面進度確認", hrs:"1 hr", detail:"確認六月 CAD 圖面完成狀況：配置圖、各層平面圖、2張剖面圖、2個方向立面圖。缺的補上，下週進入修整。"}
     ]},
-    { day:"週六（模型前置）", hrs:"5 hr", tasks:[
+    { day:"週六", hrs:"5 hr", tasks:[
       {type:"cad", title:"CAD 配置圖打印作為模型底稿", hrs:"2 hr", detail:"把 CAD 配置圖以 1:200 或 1:500 比例印出，作為設計發展模型的底稿。確認比例正確。"},
       {type:"model", title:"設計發展模型製作開始", hrs:"3 hr", detail:"這個月的模型是「設計發展模型」，比五月的概念模型更精確：按照 CAD 平面圖的實際比例，裁出各建築量體、做出地形高差。目標：完成基地底板和建築主要量體結構。"}
     ]},
-    { day:"週日（模型主力日）", hrs:"7-8 hr", tasks:[
+    { day:"週日", hrs:"7-8 hr", tasks:[
       {type:"model", title:"設計發展模型：細部完成＋拍照", hrs:"6 hr", detail:"完成設計發展模型：加入開口（門窗剪影）、室外空間元素（廣場地面、植栽以紙棒代替）、各層樓板。從多角度拍照：鳥瞰、人視角、入口視角，找出最能表現設計概念的角度。"},
       {type:"port", title:"作品集：模型展示頁製作", hrs:"1.5 hr", detail:"把設計發展模型的照片整理進 Canva，做成模型展示頁：不同角度的模型照片、搭配設計概念文字說明。"}
     ]}
   ]
 },
 {
-  id:7, label:"第7週", phase:"六月 · 圖面深化", isModel:false, totalHrs:"約 26 hr/週",
+  id:7, label:"W9", dateRange:"6/9 – 6/15", phase:"六月 · 圖面深化", isModel:false, totalHrs:"約 26 hr/週",
   title:"圖面精修 · SketchUp 完善 · 透視圖完稿",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -543,7 +533,7 @@ const WEEKS = [
   ]
 },
 {
-  id:8, label:"第8週", phase:"六月 · 收尾", isModel:false, totalHrs:"約 24 hr/週",
+  id:8, label:"W10", dateRange:"6/16 – 6/22", phase:"六月 · 收尾", isModel:false, totalHrs:"約 24 hr/週",
   title:"作品集A 初稿完成 · 案子2 選題 · 作品集B 規劃",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -578,7 +568,7 @@ const WEEKS = [
   ]
 },
 {
-  id:9, label:"第9週", phase:"七月 · 作品集完成", isModel:false, totalHrs:"約 24 hr/週",
+  id:9, label:"W11", dateRange:"6/23 – 6/29", phase:"七月 · 作品集完成", isModel:false, totalHrs:"約 24 hr/週",
   title:"作品集B 深化 · 案子2 案例分析啟動 · 手繪加強",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -613,7 +603,7 @@ const WEEKS = [
   ]
 },
 {
-  id:10, label:"第10週", phase:"七月 · 案子2發展", isModel:true, totalHrs:"約 26 hr/週",
+  id:10, label:"W12", dateRange:"6/30 – 7/6", phase:"七月 · 案子2發展", isModel:true, totalHrs:"約 26 hr/週",
   title:"案子2 設計發展 · 作品集收尾 ＋ 模型週",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -636,18 +626,18 @@ const WEEKS = [
       {type:"draw", title:"手繪整理", hrs:"45 min", detail:"整理本週手繪。"},
       {type:"cad", title:"案子2 圖面進度確認", hrs:"1 hr", detail:"確認案子2 目前進度，規劃下週需要完成的圖面。"}
     ]},
-    { day:"週六（模型前置）", hrs:"5 hr", tasks:[
+    { day:"週六", hrs:"5 hr", tasks:[
       {type:"cad", title:"案子2 配置圖打印", hrs:"2 hr", detail:"把案子2 CAD 配置圖以適當比例印出，作為模型的底稿。"},
       {type:"model", title:"案子2 模型製作開始", hrs:"3 hr", detail:"案子2 的概念模型：按照配置圖的比例裁出基地底板、做出主要量體。這次模型製作應該比案子1 更有效率，因為流程已經熟悉了。"}
     ]},
-    { day:"週日（模型主力日）", hrs:"7-8 hr", tasks:[
+    { day:"週日", hrs:"7-8 hr", tasks:[
       {type:"model", title:"案子2 模型：完成＋拍照", hrs:"6 hr", detail:"完成案子2 模型，加入室外空間元素，從多角度拍照。特別注意：拍出能表現設計概念的角度，讓照片說明設計想法。"},
       {type:"port", title:"開始積極投遞", hrs:"1.5 hr", detail:"作品集 A 和 B 都完成後，開始向前三順位的目標公司投遞。信件要客製化：提到你對那家公司哪個作品有感覺、你的背景如何和他們契合。"}
     ]}
   ]
 },
 {
-  id:11, label:"第11週", phase:"七月 · 求職", isModel:false, totalHrs:"約 22 hr/週",
+  id:11, label:"W13", dateRange:"7/7 – 7/13", phase:"七月 · 求職", isModel:false, totalHrs:"約 22 hr/週",
   title:"案子2 圖面完成 · 積極投遞 · 面試準備",
   days:[
     { day:"週一", hrs:"2.5 hr", tasks:[
@@ -682,7 +672,7 @@ const WEEKS = [
   ]
 },
 {
-  id:12, label:"第12週", phase:"七月 · 收尾", isModel:false, totalHrs:"約 20 hr/週",
+  id:12, label:"W14", dateRange:"7/14 – 7/20", phase:"七月 · 收尾", isModel:false, totalHrs:"約 20 hr/週",
   title:"全力求職 · 技能維持 · 保持節奏",
   days:[
     { day:"週一", hrs:"2 hr", tasks:[
@@ -717,7 +707,7 @@ const WEEKS = [
   ]
 },
 {
-  id:13, label:"第13-17週", phase:"八月+ · 全力求職", isModel:false, totalHrs:"維持約 15-18 hr/週",
+  id:13, label:"W15+", dateRange:"8/1 起", phase:"八月+ · 全力求職", isModel:false, totalHrs:"維持約 15-18 hr/週",
   title:"持續求職 · 技能維持 · 保持設計敏感度",
   days:[
     { day:"每週一三", hrs:"各 2 hr", tasks:[
@@ -795,13 +785,12 @@ function setFilter(f){
 
 function renderWeek(wIdx){
   const w=WEEKS[wIdx];
-  document.getElementById('wlbl').textContent=w.label;
+  document.getElementById('wlbl').textContent=w.dateRange||w.label;
   document.getElementById('wtitle').textContent=w.title;
   document.getElementById('wphase').textContent=w.phase;
   document.getElementById('wmodel-badge').style.display=w.isModel?'inline-block':'none';
   document.getElementById('whrs-badge').textContent='🕐 '+w.totalHrs;
-  const aprLabels=['4/13','4/19','4/21','4/26'];
-  document.getElementById('wind').textContent=wIdx<4?aprLabels[wIdx]:'W'+(wIdx-3);
+  document.getElementById('wind').textContent=w.label;
   document.getElementById('hdr-sub').textContent=w.label+' · '+w.phase;
 
   const list=document.getElementById('task-list');
@@ -822,8 +811,11 @@ function renderWeek(wIdx){
 
     const sec=document.createElement('div');
     sec.className='day-section';
+    const issat=day.day.includes('六');
+    const issun=day.day.includes('日');
+    const wkclass=issat?' weekend-sat':issun?' weekend-sun':'';
     sec.innerHTML=`
-      <div class="day-header">
+      <div class="day-header${wkclass}">
         <span class="day-name">${day.day}</span>
         <div class="day-meta">
           <span class="day-hrs">${day.hrs}</span>
@@ -931,8 +923,8 @@ function updateDots(){
     const d=document.createElement('div');
     d.className='wd';
     const aprShort=['4/13','4/19','4/21','4/26'];
-    d.textContent=i<4?aprShort[i]:'W'+(i-3);
-    d.style.fontSize=i<4?'8px':'10px';
+    d.textContent=WEEKS[i].label;
+    d.style.fontSize='9px';
     if(i===curWeek)d.classList.add('active');
     if(total>0&&done===total)d.classList.add('full');
     else if(done>0)d.classList.add('part');
@@ -1018,15 +1010,11 @@ function showToast(msg){
 function init(){
   load();
   const now=new Date();
-  const may1=new Date(now.getFullYear(),4,1);
-  const apr19=new Date(now.getFullYear(),3,19);
+  const may5=new Date(now.getFullYear(),4,5);
   const apr21=new Date(now.getFullYear(),3,21);
-  const apr26=new Date(now.getFullYear(),3,26);
   let startWeek=0;
-  if(now>=may1) startWeek=Math.min(3+Math.floor((now-may1)/(7*86400000))+1, WEEKS.length-1);
-  else if(now>=apr26) startWeek=3;
-  else if(now>=apr21) startWeek=2;
-  else if(now>=apr19) startWeek=1;
+  if(now>=may5) startWeek=Math.min(2+Math.floor((now-may5)/(7*86400000)), WEEKS.length-1);
+  else if(now>=apr21) startWeek=1;
   else startWeek=0;
   curWeek=startWeek;
   renderWeek(curWeek);
