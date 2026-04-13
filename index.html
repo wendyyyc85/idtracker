@@ -80,6 +80,20 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 .ck.done{background:var(--done);border-color:var(--done);color:#fff;}
 .tc-detail{font-size:11px;color:var(--text2);line-height:1.6;padding:0 14px 11px;border-top:1px solid var(--border);padding-top:8px;display:none;}
 .tc-detail.open{display:block;}
+.actual-row{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);flex-wrap:wrap;}
+.actual-label{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;flex-shrink:0;}
+.actual-input{width:52px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:3px 8px;font-size:11px;font-family:'DM Mono',monospace;color:var(--text);outline:none;text-align:center;}
+.actual-input:focus{border-color:var(--text2);}
+.actual-unit{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;}
+
+/* WEEK TIME SUMMARY */
+.wtime-summary{display:flex;align-items:center;gap:10px;margin:0 18px 12px;padding:10px 14px;background:var(--surface);border:1px solid var(--border);border-radius:10px;}
+.wts-item{flex:1;text-align:center;}
+.wts-val{font-size:16px;font-weight:700;font-family:'DM Mono',monospace;line-height:1;}
+.wts-lbl{font-size:10px;color:var(--text2);margin-top:2px;}
+.wts-div{width:1px;height:30px;background:var(--border);}
+.wts-over{color:var(--model);}
+.wts-ok{color:var(--done);}
 
 /* CHECK ALL BTN */
 .cab{width:calc(100% - 36px);margin:0 18px 14px;padding:14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);color:var(--text2);font-size:13px;font-weight:500;font-family:'Noto Sans TC',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all .2s;}
@@ -195,6 +209,22 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
       </div>
     </div>
     <div id="task-list"></div>
+  </div>
+  <div class="wtime-summary" id="wtime-summary">
+    <div class="wts-item">
+      <div class="wts-val" id="wts-target">—</div>
+      <div class="wts-lbl">目標時數</div>
+    </div>
+    <div class="wts-div"></div>
+    <div class="wts-item">
+      <div class="wts-val" id="wts-actual">0</div>
+      <div class="wts-lbl">實際時數</div>
+    </div>
+    <div class="wts-div"></div>
+    <div class="wts-item">
+      <div class="wts-val" id="wts-diff">—</div>
+      <div class="wts-lbl">差異</div>
+    </div>
   </div>
   <button class="cab" id="cab" onclick="checkAll()">
     <span id="cab-icon">○</span><span id="cab-txt">本週全部打卡</span>
@@ -734,13 +764,13 @@ const WEEKS = [
 const TAG_MAP={cad:"CAD",sku:"Sketch",draw:"手繪",port:"作品集",model:"模型"};
 const TAG_CLS={cad:"tag-cad",sku:"tag-sku",draw:"tag-draw",port:"tag-port",model:"tag-model"};
 
-let curWeek=0, curPage='tracker', data={}, checkDates=[], remarks={}, curFilter='all';
+let curWeek=0, curPage='tracker', data={}, checkDates=[], remarks={}, actuals={}, curFilter='all';
 
 function load(){
-  try{const r=localStorage.getItem('idtrk2');if(r){const p=JSON.parse(r);data=p.d||{};checkDates=p.c||[];remarks=p.r||{};}}catch(e){}
+  try{const r=localStorage.getItem('idtrk2');if(r){const p=JSON.parse(r);data=p.d||{};checkDates=p.c||[];remarks=p.r||{};actuals=p.a||{};}}catch(e){}
 }
 function save(){
-  try{localStorage.setItem('idtrk2',JSON.stringify({d:data,c:checkDates,r:remarks}));}catch(e){}
+  try{localStorage.setItem('idtrk2',JSON.stringify({d:data,c:checkDates,r:remarks,a:actuals}));}catch(e){}
 }
 function key(w,d,t){return `w${w}d${d}t${t}`;}
 function isDone(w,d,t){return data[key(w,d,t)]===true;}
@@ -830,6 +860,10 @@ function renderWeek(wIdx){
     filteredTasks.forEach((task)=>{
       const ti=day.tasks.indexOf(task);
       const done=isDone(wIdx,di,ti);
+      const actualKey=`act_w${wIdx}_d${di}_t${ti}`;
+      const actualVal=actuals[actualKey]||0;
+      const actualH=Math.floor(actualVal);
+      const actualM=Math.round((actualVal-actualH)*60);
       const tc=document.createElement('div');
       tc.className='tc'+(done?' done':'');
       tc.innerHTML=`
@@ -837,11 +871,20 @@ function renderWeek(wIdx){
           <span class="ttag ${TAG_CLS[task.type]}">${TAG_MAP[task.type]}</span>
           <div class="tc-info">
             <div class="tc-title">${task.title}</div>
-            <div class="tc-hrs">⏱ ${task.hrs}</div>
+            <div class="tc-hrs">⏱ 目標 ${task.hrs}</div>
           </div>
           <div class="ck${done?' done':''}" onclick="event.stopPropagation();toggle(${wIdx},${di},${ti})">${done?'✓':''}</div>
         </div>
-        <div class="tc-detail" id="det-${wIdx}-${di}-${ti}">${task.detail}</div>
+        <div class="tc-detail" id="det-${wIdx}-${di}-${ti}">
+          ${task.detail}
+          <div class="actual-row">
+            <span class="actual-label">實際花了</span>
+            <input class="actual-input" type="number" min="0" max="24" step="1" placeholder="0" value="${actualH||''}" id="${actualKey}-h" oninput="saveActualHM('${actualKey}',${wIdx})">
+            <span class="actual-unit">時</span>
+            <input class="actual-input" type="number" min="0" max="59" step="5" placeholder="0" value="${actualM||''}" id="${actualKey}-m" oninput="saveActualHM('${actualKey}',${wIdx})">
+            <span class="actual-unit">分</span>
+          </div>
+        </div>
       `;
       body.appendChild(tc);
     });
@@ -884,6 +927,72 @@ function renderWeek(wIdx){
   btn.className='cab'+(allDone?' alldone':'');
   document.getElementById('cab-icon').textContent=allDone?'✓':'○';
   document.getElementById('cab-txt').textContent=allDone?'本週已全部完成':'本週全部打卡';
+  updateWeekTimeSummary(wIdx);
+}
+
+function saveActualHM(key, wIdx){
+  const hEl=document.getElementById(key+'-h');
+  const mEl=document.getElementById(key+'-m');
+  const h=parseFloat(hEl?.value)||0;
+  const m=parseFloat(mEl?.value)||0;
+  actuals[key]=Math.round((h+m/60)*100)/100;
+  save();
+  updateWeekTimeSummary(wIdx);
+}
+
+function parseMin(str){
+  if(!str) return 0;
+  const hr=str.match(/([\d.]+)\s*hr/);
+  if(hr) return Math.round(parseFloat(hr[1])*60);
+  const mn=str.match(/([\d.]+)\s*min/);
+  if(mn) return Math.round(parseFloat(mn[1]));
+  return 0;
+}
+
+function fmtMin(totalMin){
+  const h=Math.floor(totalMin/60);
+  const m=totalMin%60;
+  if(h>0&&m>0) return h+'h '+m+'m';
+  if(h>0) return h+'h';
+  if(m>0) return m+'m';
+  return '0';
+}
+
+function updateWeekTimeSummary(wIdx){
+  const w=WEEKS[wIdx];
+
+  // sum target in minutes
+  let targetMin=0;
+  w.days.forEach(day=>{
+    day.tasks.forEach(task=>{ targetMin+=parseMin(task.hrs); });
+  });
+
+  // sum actuals in minutes
+  let actualMin=0;
+  w.days.forEach((day,di)=>{
+    day.tasks.forEach((_,ti)=>{
+      const v=actuals[`act_w${wIdx}_d${di}_t${ti}`]||0;
+      actualMin+=Math.round(v*60);
+    });
+  });
+
+  const tEl=document.getElementById('wts-target');
+  const aEl=document.getElementById('wts-actual');
+  const dEl=document.getElementById('wts-diff');
+  if(!tEl) return;
+
+  tEl.textContent=targetMin>0?fmtMin(targetMin):'—';
+  aEl.textContent=actualMin>0?fmtMin(actualMin):'0';
+
+  if(targetMin>0&&actualMin>0){
+    const diff=actualMin-targetMin;
+    const sign=diff>=0?'+':'-';
+    dEl.textContent=sign+fmtMin(Math.abs(diff));
+    dEl.className='wts-val '+(diff>0?'wts-over':'wts-ok');
+  } else {
+    dEl.textContent='—';
+    dEl.className='wts-val';
+  }
 }
 
 function toggleDetail(id){
