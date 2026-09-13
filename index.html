@@ -275,323 +275,330 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 
 const WEEKS = [
 {
-  id:0, label:"W1", dateRange:"7/18 – 7/19", phase:"七月 · 週末暖身", isModel:false, totalHrs:"約 6 hr（最低版）",
-  title:"安裝軟體 · AutoCAD/SketchUp 手感 · 靈感啟動",
+  id:0, label:"W1", dateRange:"9/14 – 9/20", phase:"九月 · 暖身啟動", isModel:false, totalHrs:"約 9 hr（最低版）",
+  title:"裝軟體 · AutoCAD/SketchUp 手感 · 靈感啟動",
   days:[
-    { day:"7/18（六）", hrs:"3.5 hr", tasks:[
-      {type:"cad", title:"安裝 AutoCAD 試用版", hrs:"15 min", detail:"去 Autodesk 官網下載 AutoCAD 試用版（免費30天），安裝好後開啟，確認介面正常。同時打開 SketchUp Free（sketchup.com），確認能用。整個計畫的第一步，只要15分鐘，做完就算贏。"},
-      {type:"cad", title:"AutoCAD 跟著教學操作", hrs:"2 hr", detail:"跟著 CAD CAM Tutorials「AutoCAD Interior Design Tutorial for Beginners」第一集，一定要跟著畫。目標：Line、Offset、Trim 三個指令用起來不需要查。畫完一個 3×4m 的空白房間框。"},
-      {type:"sku", title:"SketchUp 空白盒子", hrs:"1 hr", detail:"跟著 The SketchUp Essentials 入門影片，建一個 5m×4m×2.8m 的空白盒子。重點感受：推拉工具、視角旋轉、捲尺輸入尺寸。"}
+    { day:"9/14（一）", hrs:"15 min · 今天只有這件事", tasks:[
+      {type:"cad", title:"安裝 AutoCAD 試用版", hrs:"15 min", detail:"去 Autodesk 官網下載 AutoCAD 試用版（免費30天），安裝好後開啟，確認介面正常。同時打開 SketchUp Free（sketchup.com），確認能用。今天只要做這件事，15 分鐘，做完就可以關電腦——這是整個計畫的第一步。"}
     ]},
-    { day:"7/19（日）", hrs:"2.5 hr · 做完就休息", tasks:[
-      {type:"cad", title:"AutoCAD 自己重畫一遍", hrs:"1.5 hr", detail:"不看教學，把昨天的房間重新畫一次。卡住才查。這個「自己重做」的動作才是真正建立記憶的關鍵。"},
-      {type:"port", title:"Pinterest 靈感板建立", hrs:"45 min", detail:"建一個「設計靈感」板，存 15-20 張你覺得好看的建築或室內設計照片，挑最喜歡的 3 張各寫 2-3 句為什麼喜歡。"},
-      {type:"port", title:"案子1 初步構想（定人三問）", hrs:"20 min", detail:"備忘錄寫下：① 這個空間給誰用？② 他怎麼使用這個空間？③ 他最在乎什麼感覺？先寫直覺，不用確定。"}
+    { day:"9/15（二）", hrs:"1.5 hr", tasks:[
+      {type:"cad", title:"AutoCAD 跟著教學操作", hrs:"1.5 hr", detail:"跟著 CAD CAM Tutorials「AutoCAD Interior Design Tutorial for Beginners」第一集，一定要跟著畫不要只看。目標：Line、Offset、Trim 三個指令用起來不需要查。畫完一個 3×4m 的空白房間框。"}
+    ]},
+    { day:"9/17（四）", hrs:"1.5 hr", tasks:[
+      {type:"sku", title:"SketchUp 空白盒子", hrs:"1.5 hr", detail:"跟著 The SketchUp Essentials 入門影片，建一個 5m×4m×2.8m 的空白盒子。重點感受：推拉工具（Push/Pull）、視角旋轉（滑鼠中鍵）、捲尺輸入尺寸。"}
+    ]},
+    { day:"9/19（六）", hrs:"3.5 hr", tasks:[
+      {type:"cad", title:"AutoCAD 自己重畫一遍", hrs:"2 hr", detail:"不看教學，把週二的房間重新畫一次。卡住才查，不要邊看邊畫。這個「自己重做」的動作才是真正建立記憶的關鍵。"},
+      {type:"port", title:"Pinterest 靈感板建立", hrs:"1.5 hr", detail:"建一個「設計靈感」板，存 15-20 張你覺得好看的建築或室內設計照片。不用分析，先讓眼睛開始看設計。"}
+    ]},
+    { day:"9/20（日）", hrs:"2.5 hr · 做完就休息", tasks:[
+      {type:"port", title:"靈感圖風格分析", hrs:"1.5 hr", detail:"從靈感板挑最喜歡的 3 張，各用 2-3 句話寫下為什麼喜歡：色彩？材質？比例？光線感？這是練習用語言描述設計感受，也是之後寫設計說明的基礎。"},
+      {type:"port", title:"案子1 初步構想（定人三問）", hrs:"45 min", detail:"備忘錄寫下：① 這個空間給誰用？② 他怎麼使用這個空間？③ 他最在乎什麼感覺？先寫直覺，不用確定。"}
     ]}
   ]
 },
 {
-  id:1, label:"W2", dateRange:"7/20 – 7/26", phase:"七月 · 案例分析", isModel:false, totalHrs:"約 11 hr（最低版）",
+  id:1, label:"W2", dateRange:"9/21 – 9/27", phase:"九月 · 案例分析", isModel:false, totalHrs:"約 11 hr（最低版）",
   title:"案例分析（一）· CAD 圖層 · 手繪符號",
   days:[
-    { day:"7/21（二）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"9/22（二）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"案例分析：選案", hrs:"45 min", detail:"在 ArchDaily、Dezeen 找 2-3 個你喜歡的建築案子（類型不限）。先不分析，存好、仔細看圖讀文字，記下第一眼的直覺感受。"},
       {type:"draw", title:"手繪分析符號：箭頭與泡泡", hrs:"45 min", detail:"練習分析圖語言：動線箭頭（粗細代表主次）、區域泡泡（bubble diagram）、視線錐。每個符號畫 15 遍。"}
     ]},
-    { day:"7/23（四）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"9/24（四）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"案例分析：平面邏輯", hrs:"1.5 hr", detail:"取第1個案子的平面圖手繪描出來，用顏色標出：公共區、私密區、動線、服務空間。問自己：設計師為什麼這樣分區？"}
     ]},
-    { day:"7/25（六）", hrs:"5.5 hr", tasks:[
+    { day:"9/26（六）", hrs:"5.5 hr", tasks:[
       {type:"cad", title:"AutoCAD 圖層系統建立", hrs:"1.5 hr", detail:"建立建築圖層體系：牆體、開口、柱子、標註、基地、景觀，設定顏色與線型。這套圖層整個作品集都會用。"},
       {type:"port", title:"案例分析：剖面與空間感", hrs:"1.5 hr", detail:"找同案子的剖面圖，分析空間高度變化傳達什麼感覺，手繪標注並寫 2-3 句心得。"},
       {type:"port", title:"案例分析：立面與材料", hrs:"1.5 hr", detail:"分析立面：用了哪些材料？開口的比例節奏？手繪立面簡圖並標注材料與設計重點。"},
       {type:"draw", title:"手繪符號：場地與環境", hrs:"1 hr", detail:"基地分析符號：風向箭頭、日照弧線、噪音波浪線、景觀視線虛線、人流線。"}
     ]},
-    { day:"7/26（日）", hrs:"3 hr · 做完就休息", tasks:[
+    { day:"9/27（日）", hrs:"3 hr · 做完就休息", tasks:[
       {type:"port", title:"第1案分析整理成展示頁", hrs:"2 hr", detail:"整理成作品集頁面初稿：案子照片＋你的分析圖（拍照）＋文字重點。Canva 或手繪版面都可以。"},
       {type:"draw", title:"一點透視基礎練習", hrs:"1 hr", detail:"消點設定、視平線高度（人視角1.5m）、建築量體基本比例。畫一個簡單的室外廣場空間。"}
     ]}
   ]
 },
 {
-  id:2, label:"W3", dateRange:"7/27 – 8/2", phase:"七月 · 案例分析", isModel:false, totalHrs:"約 11 hr（最低版）",
+  id:2, label:"W3", dateRange:"9/28 – 10/4", phase:"十月 · 案例分析", isModel:false, totalHrs:"約 11 hr（最低版）",
   title:"案例分析（二）· 符號速查表 · 基地圖臨摹",
   days:[
-    { day:"7/28（二）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"9/29（二）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"手繪符號速查表", hrs:"45 min", detail:"把練過的分析圖符號整理到一張 A4 速查表，之後畫分析圖隨時參考，貼在桌上。"},
       {type:"port", title:"第2案選定與初讀", hrs:"45 min", detail:"選定第2個要分析的案子，仔細看圖讀說明，記下最想深入分析的面向。"}
     ]},
-    { day:"7/30（四）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/1（四）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"第2案：平面＋動線分析", hrs:"1.5 hr", detail:"手繪第2案的平面分區圖（bubble diagram）＋動線分析圖，每張寫 1-2 句設計觀察。"}
     ]},
-    { day:"8/1（六）", hrs:"5.5 hr", tasks:[
+    { day:"10/3（六）", hrs:"5.5 hr", tasks:[
       {type:"port", title:"第2案：剖面＋立面深度分析", hrs:"2.5 hr", detail:"剖面空間感素描＋立面材料分析，完成第2案的完整手繪分析。"},
       {type:"cad", title:"CAD 基地配置圖臨摹", hrs:"2 hr", detail:"找一張你喜歡的案子的配置圖（site plan），在 AutoCAD 臨摹：建築量體輪廓、基地邊界、道路、景觀範圍。"},
       {type:"draw", title:"一點透視練習", hrs:"1 hr", detail:"加入建築量體、人的比例（1.7m）、樹木和地面元素，感受外部空間尺度。"}
     ]},
-    { day:"8/2（日）", hrs:"3 hr · 做完就休息", tasks:[
+    { day:"10/4（日）", hrs:"3 hr · 做完就休息", tasks:[
       {type:"port", title:"案例分析整理成展示頁", hrs:"2.5 hr", detail:"兩個案子的分析整理成作品集頁面（每案 1 頁）。這是作品集的第一部分，完成就有實際產出了！"},
       {type:"model", title:"無機能模型材料清單", hrs:"30 min", detail:"列出採購清單：灰紙板（3mm＋5mm）、美工刀、切割墊、白膠、金屬尺。這週或下週前買齊。"}
     ]}
   ]
 },
 {
-  id:3, label:"W4", dateRange:"8/3 – 8/9", phase:"八月 · 基地分析", isModel:false, totalHrs:"約 11 hr（最低版）",
+  id:3, label:"W4", dateRange:"10/5 – 10/11", phase:"十月 · 基地分析", isModel:false, totalHrs:"約 11 hr（最低版）",
   title:"基地選定 · 基地分析 · 手繪分析圖",
   days:[
-    { day:"8/4（二）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/6（二）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"基地選定與資料蒐集", hrs:"1.5 hr", detail:"確定案子1 的基地（真實或虛構，要有清楚的地形特色）。蒐集地圖截圖、街景照片、地形資料。用 Google Maps 街景走一遍，記下人流、車流、景觀、噪音、鄰棟。"}
     ]},
-    { day:"8/6（四）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/8（四）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"手繪基地分析圖（一）", hrs:"1.5 hr", detail:"① N向標示 ② 日照路徑（夏至/冬至）③ 主要風向 ④ 周邊道路與人行流線。用色鉛筆或麥克筆分色。"}
     ]},
-    { day:"8/8（六）", hrs:"5.5 hr", tasks:[
+    { day:"10/10（六）", hrs:"5.5 hr", tasks:[
       {type:"cad", title:"CAD 基地平面圖", hrs:"2 hr", detail:"畫基地邊界、道路邊線、等高線、鄰棟建築輪廓（灰色填充）。比例 1:500 或 1:1000。"},
       {type:"port", title:"基地限制與機會整理", hrs:"1.5 hr", detail:"整理基地的「限制」和「機會」各 5 點，例如：限制——南側高樓遮蔽日照；機會——北面山景視野。這直接影響設計決策。"},
       {type:"draw", title:"手繪基地分析圖（二）", hrs:"2 hr", detail:"視線與動線：景觀視線最好的方向？人流從哪進來？車流停車邏輯？主要入口設想位置？分色標示。"}
     ]},
-    { day:"8/9（日）", hrs:"3 hr · 做完就休息", tasks:[
+    { day:"10/11（日）", hrs:"3 hr · 做完就休息", tasks:[
       {type:"port", title:"基地分析整理成展示頁", hrs:"2.5 hr", detail:"整理成作品集頁面：基地位置圖＋環境照片＋手繪分析圖＋限制與機會條列。作品集第二部分完成！"},
       {type:"model", title:"模型材料採購確認", hrs:"30 min", detail:"確認模型材料已買齊，下週要開始做無機能模型了。"}
     ]}
   ]
 },
 {
-  id:4, label:"W5", dateRange:"8/10 – 8/16", phase:"八月 · 無機能模型", isModel:true, totalHrs:"約 12 hr（最低版）",
+  id:4, label:"W5", dateRange:"10/12 – 10/18", phase:"十月 · 無機能模型", isModel:true, totalHrs:"約 12 hr（最低版）",
   title:"無機能模型製作 · 概念萌芽 ＋ 模型週",
   days:[
-    { day:"8/11（二）☕咖啡廳→家", hrs:"1.5 hr", tasks:[
-      {type:"model", title:"無機能模型啟動：量體排列", hrs:"1.5 hr", detail:"裁幾個不同大小的紙板塊，在底板上試排列：高低差怎麼產生有趣的空間？量體間的縫隙能創造什麼？不要有預設答案，純粹玩。（這個任務要在家做）"}
+    { day:"10/13（二）家", hrs:"1.5 hr", tasks:[
+      {type:"model", title:"無機能模型啟動：量體排列", hrs:"1.5 hr", detail:"裁幾個不同大小的紙板塊，在底板上試排列：高低差怎麼產生有趣的空間？量體間的縫隙能創造什麼？不要有預設答案，純粹玩。"}
     ]},
-    { day:"8/13（四）家", hrs:"1.5 hr", tasks:[
+    { day:"10/15（四）家", hrs:"1.5 hr", tasks:[
       {type:"model", title:"模型試驗續＋拍照記錄", hrs:"1.5 hr", detail:"繼續試不同的量體關係，每一版都用手機拍下來（白底、自然光）。過程照片本身就是作品集素材。"}
     ]},
-    { day:"8/15（六）模型主力日", hrs:"6 hr", tasks:[
+    { day:"10/17（六）模型主力日", hrs:"6 hr", tasks:[
       {type:"model", title:"無機能模型深化完成", hrs:"4 hr", detail:"選最有感覺的量體關係做精確：這個空間關係變成建築會是什麼感覺？光從哪進來？人怎麼移動？完成最終版。"},
       {type:"model", title:"模型多角度拍照", hrs:"1 hr", detail:"白底、自然光、鳥瞰＋人視角＋細部，每個版本都拍。"},
       {type:"draw", title:"空間感受速寫", hrs:"1 hr", detail:"看著模型，把你感受到的空間氛圍畫成 2-3 張小速寫（想像人在裡面看到什麼）。"}
     ]},
-    { day:"8/16（日）", hrs:"3 hr · 做完就休息", tasks:[
+    { day:"10/18（日）", hrs:"3 hr · 做完就休息", tasks:[
       {type:"port", title:"概念發展：從模型找設計語言", hrs:"1.5 hr", detail:"回顧模型照片：哪個空間關係最有感覺？那個感覺是什麼——壓縮後的釋放？光線的戲劇性？高低差的張力？寫下來，這就是概念雛形。"},
       {type:"port", title:"設計主題一句話", hrs:"45 min", detail:"用一句話描述設計概念，例如「透過光線和地形的對話，創造讓聲音與自然共鳴的場所」。要能回答：你的設計在做什麼？為什麼？"},
-      {type:"port", title:"週回顧", hrs:"30 min", detail:"到這裡完成了：案例分析✓基地分析✓無機能模型✓概念雛形✓。感受一下——你已經走完設計流程的前半段了。"}
+      {type:"port", title:"週回顧", hrs:"45 min", detail:"到這裡完成了：案例分析✓基地分析✓無機能模型✓概念雛形✓。感受一下——你已經走完設計流程的前半段了。"}
     ]}
   ]
 },
 {
-  id:5, label:"W6", dateRange:"8/17 – 8/23", phase:"八月 · 概念確立", isModel:false, totalHrs:"約 11 hr（最低版）",
+  id:5, label:"W6", dateRange:"10/19 – 10/25", phase:"十月 · 概念確立", isModel:false, totalHrs:"約 11 hr（最低版）",
   title:"機能配置 · 概念草圖 · 概念模型",
   days:[
-    { day:"8/18（二）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/20（二）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"機能配置 bubble diagram", hrs:"1.5 hr", detail:"案子1 需要哪些空間？大小比例？哪些要靠近、哪些要隔開？用大小圓圈＋連線畫出機能關係圖。"}
     ]},
-    { day:"8/20（四）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/22（四）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"概念草圖（一）：空間序列", hrs:"1.5 hr", detail:"人從入口進來會經歷什麼？先窄後寬？先暗後亮？用一系列剖面小圖畫出「空間體驗的劇本」。"}
     ]},
-    { day:"8/22（六）", hrs:"5.5 hr", tasks:[
+    { day:"10/24（六）", hrs:"5.5 hr", tasks:[
       {type:"cad", title:"CAD 配置圖：量體初稿", hrs:"2 hr", detail:"把概念轉化到配置圖：建築量體的位置和大小。確認離道路距離、建蔽率合理（通常不超過60%）。"},
       {type:"draw", title:"概念草圖（二）：量體與地形", hrs:"2 hr", detail:"建築怎麼落在地上？順應地形、切入地形、還是懸浮？從剖面畫出這個關係，這是建築設計的核心決策。"},
       {type:"model", title:"概念模型啟動", hrs:"1.5 hr", detail:"把機能配置做成立體：小紙板做各空間量體的大致尺寸位置，放在基地上看整體感。"}
     ]},
-    { day:"8/23（日）", hrs:"3 hr · 做完就休息", tasks:[
+    { day:"10/25（日）", hrs:"3 hr · 做完就休息", tasks:[
       {type:"port", title:"概念設計整理成展示頁", hrs:"2.5 hr", detail:"整理成作品集頁面：概念說明文字＋bubble diagram＋概念模型照片＋草圖掃描。"},
       {type:"draw", title:"手繪整理", hrs:"30 min", detail:"挑出最能說明設計想法的 3 張草圖，這些會進作品集「設計過程」頁。"}
     ]}
   ]
 },
 {
-  id:6, label:"W7", dateRange:"8/24 – 8/30", phase:"八月 · 平面發展", isModel:false, totalHrs:"約 11.5 hr（最低版）",
+  id:6, label:"W7", dateRange:"10/26 – 11/1", phase:"十月底 · 平面發展", isModel:false, totalHrs:"約 11.5 hr（最低版）",
   title:"平面配置 · CAD 平面圖 · 剖面透視",
   days:[
-    { day:"8/25（二）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/27（二）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"平面配置草圖（手繪）", hrs:"1.5 hr", detail:"根據概念模型，徒手畫初版平面配置，試 2-3 種格局。不用比例尺，先把想法畫出來。"}
     ]},
-    { day:"8/27（四）☕咖啡廳", hrs:"1.5 hr", tasks:[
+    { day:"10/29（四）", hrs:"1.5 hr", tasks:[
       {type:"cad", title:"CAD 一層平面圖開始", hrs:"1.5 hr", detail:"把配置草圖轉成 CAD：牆體（外牆30cm、內牆15cm）、柱子、主要開口。先畫大格局。比例 1:100 或 1:200。"}
     ]},
-    { day:"8/29（六）", hrs:"5.5 hr", tasks:[
+    { day:"10/31（六）", hrs:"5.5 hr", tasks:[
       {type:"cad", title:"CAD 平面深化", hrs:"2.5 hr", detail:"加入門的開啟方向、窗位置、樓梯、室內分隔牆，標注房間名稱。"},
       {type:"draw", title:"剖面透視練習（section perspective）", hrs:"2 hr", detail:"建築作品集最有說服力的圖種：剖面切開建築＋透視空間感，表現高低差和光線進入方式。"},
       {type:"port", title:"室內尺度設計啟動", hrs:"1 hr", detail:"選最重要的室內空間思考：天花板高度？材料？自然光？家具配置？這是作品集B的素材。"}
     ]},
-    { day:"8/30（日）", hrs:"3 hr · 做完就休息", tasks:[
+    { day:"11/1（日）", hrs:"3 hr · 做完就休息", tasks:[
       {type:"cad", title:"CAD 平面完成＋標注", hrs:"2 hr", detail:"完成尺寸標註（標到軸線）。平面圖是整套圖面的基礎，這張完成後面都快了。"},
-      {type:"port", title:"進度自我評估", hrs:"1 hr", detail:"檢查：案例分析✓基地分析✓概念✓平面✓。下週開始升級到進階版（時數微增），準備好了嗎？"}
+      {type:"port", title:"進度自我評估", hrs:"1 hr", detail:"檢查：案例分析✓基地分析✓概念✓平面✓。下週開始升級到進階版（加週三、單日微增），準備好了嗎？"}
     ]}
   ]
 },
 {
-  id:7, label:"W8", dateRange:"8/31 – 9/6", phase:"九月 · 圖面深化", isModel:false, totalHrs:"約 15 hr（進階版）",
+  id:7, label:"W8", dateRange:"11/2 – 11/8", phase:"十一月 · 圖面深化", isModel:false, totalHrs:"約 15 hr（進階版）",
   title:"⬆ 進階版開始 · CAD 剖面＋立面",
   days:[
-    { day:"9/1（二）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"11/3（二）", hrs:"2 hr", tasks:[
       {type:"cad", title:"CAD 剖面圖（一）", hrs:"2 hr", detail:"選最能說明概念的剖切位置：被剖到的牆用粗實線（填黑或灰），看到的空間用細線。標示樓板高度、空間名稱。"}
     ]},
-    { day:"9/2（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"11/4（三）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"手繪建築立面練習", hrs:"1.5 hr", detail:"選建築主要立面手繪：輪廓、開口位置、材料分層。加地面線和人的比例（1.7m）。"}
     ]},
-    { day:"9/3（四）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"11/5（四）", hrs:"2 hr", tasks:[
       {type:"cad", title:"CAD 剖面圖（二）", hrs:"2 hr", detail:"畫與第一張垂直方向的剖面。兩張剖面加起來完整說明空間關係和高度變化。"}
     ]},
-    { day:"9/5（六）", hrs:"6 hr", tasks:[
+    { day:"11/7（六）", hrs:"6 hr", tasks:[
       {type:"cad", title:"CAD 建築立面圖 ×2", hrs:"3 hr", detail:"正立面＋側立面：建築高度、樓板線、開口、屋頂線、GL地面線。選最有設計特色的兩個方向。"},
       {type:"draw", title:"手繪剖面圖加人影", hrs:"1.5 hr", detail:"剖面加入站立人影做尺度、家具輪廓、深淺填色表現明暗。有人影的剖面圖說服力完全不同。"},
       {type:"draw", title:"室內立面手繪", hrs:"1.5 hr", detail:"最重要室內空間選一面牆畫立面：門窗、材質分層、天花板線、尺寸標注。"}
     ]},
-    { day:"9/6（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"11/8（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"cad", title:"CAD 配置圖完整版", hrs:"2.5 hr", detail:"site plan：建築量體、道路、基地邊界、景觀（樹木、廣場、戶外空間）、入口。說明建築與環境的整體關係。"},
       {type:"draw", title:"手繪整理", hrs:"1 hr", detail:"確認剖面立面比例正確、人的比例一致（1.7m）。"}
     ]}
   ]
 },
 {
-  id:8, label:"W9", dateRange:"9/7 – 9/13", phase:"九月 · SketchUp", isModel:false, totalHrs:"約 15 hr（進階版）",
+  id:8, label:"W9", dateRange:"11/9 – 11/15", phase:"十一月 · SketchUp", isModel:false, totalHrs:"約 15 hr（進階版）",
   title:"SketchUp 建模 · 室內詳圖 · 材料板",
   days:[
-    { day:"9/8（二）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"11/10（二）", hrs:"2 hr", tasks:[
       {type:"sku", title:"SketchUp 基地＋量體建模", hrs:"2 hr", detail:"從 CAD 匯入 DWG，建基地地形高差，描建築輪廓 Push/Pull 拉出各層高度。"}
     ]},
-    { day:"9/9（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"11/11（三）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"室內透視加材質", hrs:"1.5 hr", detail:"最重要室內空間的完整透視：天花板設計、牆面材質紋路、家具、光影。目標達到可進作品集的水準。"}
     ]},
-    { day:"9/10（四）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"11/12（四）", hrs:"2 hr", tasks:[
       {type:"sku", title:"SketchUp 開口＋細節＋材質", hrs:"2 hr", detail:"加門窗洞口、屋頂形式、結構元素，套入真實材質貼圖（網路找磚牆、清水混凝土、木材紋路圖）。"}
     ]},
-    { day:"9/12（六）", hrs:"6 hr", tasks:[
+    { day:"11/14（六）", hrs:"6 hr", tasks:[
       {type:"sku", title:"SketchUp 室內空間建模", hrs:"2.5 hr", detail:"最重要室內空間做細部：天花板造型、地板材質、家具（3D Warehouse）、燈具。截圖是作品集B的核心素材。"},
       {type:"cad", title:"室內詳圖＋RCP", hrs:"2 hr", detail:"畫天花板平面圖（RCP：燈具、空調、高度變化）＋一個重點細部詳圖（1:20）。證明你有想到施工層面。"},
       {type:"port", title:"材料板製作", hrs:"1.5 hr", detail:"外部材料 1-2 種＋室內材料 2-3 種，Canva 拼一張圖，標注材料名稱和選用理由（一句話）。"}
     ]},
-    { day:"9/13（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"11/15（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"sku", title:"SketchUp 截圖輸出", hrs:"2 hr", detail:"鳥瞰、人視角、入口正面、室內視角。調整 Shadow 找最好的光影，輸出高解析度（2000px+）。"},
       {type:"cad", title:"圖面統一格式", hrs:"1.5 hr", detail:"所有 CAD 圖統一：圖層命名、線型粗細、文字樣式、圖框模板。"}
     ]}
   ]
 },
 {
-  id:9, label:"W10", dateRange:"9/14 – 9/20", phase:"九月 · 設計模型", isModel:true, totalHrs:"約 16 hr（進階版）",
+  id:9, label:"W10", dateRange:"11/16 – 11/22", phase:"十一月 · 設計模型", isModel:true, totalHrs:"約 16 hr（進階版）",
   title:"設計發展模型 · 外觀透視 ＋ 模型週",
   days:[
-    { day:"9/15（二）家", hrs:"2 hr", tasks:[
+    { day:"11/17（二）家", hrs:"2 hr", tasks:[
       {type:"cad", title:"模型底稿打印＋備料", hrs:"1 hr", detail:"CAD 配置圖以 1:200 印出當模型底稿，確認比例，材料備齊。"},
       {type:"draw", title:"建築外觀透視草圖", hrs:"1 hr", detail:"從主要入口方向畫外觀透視草圖，加地形、植栽、人的比例。"}
     ]},
-    { day:"9/16（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"11/18（三）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"外觀透視草圖續", hrs:"1.5 hr", detail:"畫第二張：從最能表現設計特色的角度。這兩張之後可能直接進作品集。"}
     ]},
-    { day:"9/17（四）家", hrs:"2 hr", tasks:[
+    { day:"11/19（四）家", hrs:"2 hr", tasks:[
       {type:"model", title:"模型：底板＋牆體開始", hrs:"2 hr", detail:"按 CAD 平面實際比例裁底板、做地形高差、開始主要量體結構。"}
     ]},
-    { day:"9/19（六）模型主力日", hrs:"7 hr", tasks:[
+    { day:"11/21（六）模型主力日", hrs:"7 hr", tasks:[
       {type:"model", title:"設計發展模型完成＋拍照", hrs:"5.5 hr", detail:"加開口（門窗剪影）、室外空間元素、各層樓板。完成後多角度拍照：鳥瞰、人視角、入口視角。"},
       {type:"model", title:"模型照片整理", hrs:"1.5 hr", detail:"挑出最能表現設計概念的照片，調亮度對比，存高解析版本。"}
     ]},
-    { day:"9/20（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"11/22（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"port", title:"模型展示頁製作", hrs:"2 hr", detail:"模型照片整理進 Canva 做展示頁，搭配設計概念文字。"},
       {type:"draw", title:"剖面透視完稿開始", hrs:"1.5 hr", detail:"開始畫正式版 section perspective：剖到的牆粗線塗黑，透視空間細線，人影尺度、光線方向。"}
     ]}
   ]
 },
 {
-  id:10, label:"W11", dateRange:"9/21 – 9/27", phase:"九月 · 完稿精修", isModel:false, totalHrs:"約 15 hr（進階版）",
+  id:10, label:"W11", dateRange:"11/23 – 11/29", phase:"十一月底 · 完稿精修", isModel:false, totalHrs:"約 15 hr（進階版）",
   title:"透視完稿 · CAD 精修 · 素材總整理",
   days:[
-    { day:"9/22（二）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"11/24（二）", hrs:"2 hr", tasks:[
       {type:"draw", title:"建築外觀透視完稿", hrs:"2 hr", detail:"達到可掃描進作品集的水準：代針筆輪廓（0.5mm）、細筆材質紋路（0.1mm）、色鉛筆局部上色（留白是設計感）。"}
     ]},
-    { day:"9/23（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"11/25（三）", hrs:"1.5 hr", tasks:[
       {type:"draw", title:"室內透視完稿（上色）", hrs:"1.5 hr", detail:"麥克筆或色鉛筆局部上色：只對重點材料上色，其餘留線稿。更專業也更快。"}
     ]},
-    { day:"9/24（四）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"11/26（四）", hrs:"2 hr", tasks:[
       {type:"draw", title:"剖面透視完稿", hrs:"2 hr", detail:"完成 section perspective 正式版。這是建築作品集最有說服力的一張圖。"}
     ]},
-    { day:"9/26（六）", hrs:"6 hr", tasks:[
+    { day:"11/28（六）", hrs:"6 hr", tasks:[
       {type:"cad", title:"CAD 全套圖面精修出 PDF", hrs:"3 hr", detail:"逐張檢查：線型粗細統一、比例尺、圖名，統一圖框輸出 PDF，建立「案子1圖面包」。"},
       {type:"sku", title:"SketchUp 最終截圖", hrs:"1.5 hr", detail:"最終版截圖全部輸出，Tag 分層、Scene 存好、備份雲端。"},
       {type:"draw", title:"手繪掃描整理", hrs:"1.5 hr", detail:"所有要進作品集的手繪拍照或掃描（光線均勻、對正），調整亮度後分類存好。"}
     ]},
-    { day:"9/27（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"11/29（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"port", title:"作品集結構規劃＋封面", hrs:"2 hr", detail:"確定作品集A頁面順序：封面→案例分析→基地→概念→模型→圖面→室內→透視→結語（約12-16頁）。設計封面。"},
       {type:"port", title:"素材資料夾總整理", hrs:"1.5 hr", detail:"所有素材（圖面PDF、截圖、模型照、手繪掃描）分類整理，下週組裝作品集時直接取用。"}
     ]}
   ]
 },
 {
-  id:11, label:"W12", dateRange:"9/28 – 10/4", phase:"十月 · 作品集A", isModel:false, totalHrs:"約 15 hr（進階版）",
+  id:11, label:"W12", dateRange:"11/30 – 12/6", phase:"十二月 · 作品集A", isModel:false, totalHrs:"約 15 hr（進階版）",
   title:"作品集A 組裝 · 收集意見",
   days:[
-    { day:"9/29（二）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"12/1（二）", hrs:"2 hr", tasks:[
       {type:"port", title:"Canva：案例分析＋基地分析頁", hrs:"2 hr", detail:"把素材放進 Canva 組頁面。先求內容完整，版面美感之後統一調。"}
     ]},
-    { day:"9/30（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"12/2（三）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"Canva：概念＋模型頁", hrs:"1.5 hr", detail:"概念說明、bubble diagram、模型照片頁。"}
     ]},
-    { day:"10/1（四）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"12/3（四）", hrs:"2 hr", tasks:[
       {type:"port", title:"Canva：圖面頁", hrs:"2 hr", detail:"配置圖、平面、剖面、立面頁。每張圖要有圖名和比例尺，頁面乾淨清晰。"}
     ]},
-    { day:"10/3（六）", hrs:"6 hr", tasks:[
+    { day:"12/5（六）", hrs:"6 hr", tasks:[
       {type:"port", title:"Canva：透視＋室內頁＋全書串整", hrs:"4 hr", detail:"完成剩餘頁面，整本從頭看一遍：視覺一致？字型統一（最多2-3種）？記下要調整的。"},
       {type:"port", title:"請人看初稿收意見", hrs:"2 hr", detail:"輸出初稿 PDF 傳給 1-2 個人看，問：整體印象？哪頁最弱？有沒有看不懂的地方？"}
     ]},
-    { day:"10/4（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"12/6（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"port", title:"根據意見修整", hrs:"3 hr", detail:"只改有道理的建議，不因單一主觀偏好大改設計。重點修視覺效果和清晰度。"},
       {type:"port", title:"週回顧", hrs:"30 min", detail:"作品集A 接近完成了。下週完稿＋開始做B版。"}
     ]}
   ]
 },
 {
-  id:12, label:"W13", dateRange:"10/5 – 10/11", phase:"十月 · 作品集完稿", isModel:false, totalHrs:"約 15 hr（進階版）",
+  id:12, label:"W13", dateRange:"12/7 – 12/13", phase:"十二月 · 作品集完稿", isModel:false, totalHrs:"約 15 hr（進階版）",
   title:"作品集A 完稿 · 作品集B 抽取",
   days:[
-    { day:"10/6（二）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"12/8（二）", hrs:"2 hr", tasks:[
       {type:"port", title:"作品集A 最終修整", hrs:"2 hr", detail:"最後細節：字型、留白、圖片解析度，手機電腦各看一遍。"}
     ]},
-    { day:"10/7（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"12/9（三）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"作品集A 輸出最終 PDF", hrs:"1.5 hr", detail:"每頁 300dpi 輸出。作品集A 正式完成！備份雲端。"}
     ]},
-    { day:"10/8（四）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"12/10（四）", hrs:"2 hr", tasks:[
       {type:"port", title:"作品集B 規劃＋室內頁抽取", hrs:"2 hr", detail:"從A抽室內尺度內容（室內平面、立面、透視、材料板），建新 Canva 專案，規劃 8-10 頁結構。"}
     ]},
-    { day:"10/10（六）", hrs:"6 hr", tasks:[
+    { day:"12/12（六）", hrs:"6 hr", tasks:[
       {type:"port", title:"作品集B 組裝", hrs:"4 hr", detail:"補強室內設計語言：RCP頁、施工圖概念、材料細節說明。B版聚焦室內設計能力展現。"},
       {type:"draw", title:"面試手繪模擬", hrs:"2 hr", detail:"計時20分鐘：平面草圖＋透視草圖。面試現場可能被要求當場畫，開始練習這個情境。"}
     ]},
-    { day:"10/11（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"12/13（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"port", title:"作品集B 初稿完成", hrs:"2.5 hr", detail:"所有頁面有內容，輸出 PDF 自己看一遍，記下要修的。"},
       {type:"port", title:"履歷初稿", hrs:"1 hr", detail:"一頁A4：技能（手繪、AutoCAD、SketchUp、模型、Canva）、學習歷程、轉職動機（正面表述）。"}
     ]}
   ]
 },
 {
-  id:13, label:"W14", dateRange:"10/12 – 10/18", phase:"十月 · 求職啟動", isModel:false, totalHrs:"約 15 hr（進階版）",
+  id:13, label:"W14", dateRange:"12/14 – 12/20", phase:"十二月 · 求職啟動", isModel:false, totalHrs:"約 15 hr（進階版）",
   title:"作品集B 完成 · 履歷 · 開始投遞",
   days:[
-    { day:"10/13（二）☕咖啡廳", hrs:"2 hr", tasks:[
+    { day:"12/15（二）", hrs:"2 hr", tasks:[
       {type:"port", title:"作品集B 精修", hrs:"2 hr", detail:"確認 RCP 和立面標注完整、材料說明清楚、視覺與A版系列感一致。"}
     ]},
-    { day:"10/14（三）☕新增日", hrs:"1.5 hr", tasks:[
+    { day:"12/16（三）", hrs:"1.5 hr", tasks:[
       {type:"port", title:"履歷完成", hrs:"1.5 hr", detail:"履歷最終版，與作品集風格一致（字型配色呼應）。"}
     ]},
-    { day:"10/15（四）☕咖啡廳", hrs:"2 hr", tasks:[
-      {type:"port", title:"投遞清單建立", hrs:"2 hr", detail:"104 找 10-15 家目標公司（建築事務所＋室內設計公司都列），研究各家風格，排優先順序。"}
+    { day:"12/17（四）", hrs:"2 hr", tasks:[
+      {type:"port", title:"投遞清單建立", hrs:"2 hr", detail:"104 找 10-15 家目標公司（建築事務所＋室內設計公司都列），研究各家風格，排優先順序。年後（1-3月）是設計業徵才旺季，現在投正好卡到。"}
     ]},
-    { day:"10/17（六）", hrs:"6 hr", tasks:[
+    { day:"12/19（六）", hrs:"6 hr", tasks:[
       {type:"port", title:"兩份作品集最終確認輸出", hrs:"2 hr", detail:"手機、電腦、平板各看一遍，確認顯示正常，最終 PDF 存好。"},
       {type:"port", title:"開始投遞前 3-5 家", hrs:"2.5 hr", detail:"每封信客製化：提到你對那家公司哪個作品有感覺、你的背景如何契合。"},
       {type:"port", title:"面試自我介紹練習", hrs:"1.5 hr", detail:"2分鐘口頭版：背景→為何轉職→做了什麼準備→作品集說明什麼。錄音聽回放。"}
     ]},
-    { day:"10/18（日）", hrs:"3.5 hr · 做完就休息", tasks:[
+    { day:"12/20（日）", hrs:"3.5 hr · 做完就休息", tasks:[
       {type:"port", title:"持續投遞", hrs:"2 hr", detail:"繼續投遞，追蹤已投的狀態。"},
       {type:"draw", title:"面試手繪模擬", hrs:"1.5 hr", detail:"計時練習，讓「邊說邊畫」變自然。"}
     ]}
   ]
 },
 {
-  id:14, label:"W15+", dateRange:"10/19 起", phase:"十月底+ · 全力求職", isModel:false, totalHrs:"維持約 12 hr/週",
+  id:14, label:"W15+", dateRange:"12/21 起", phase:"十二月底+ · 全力求職", isModel:false, totalHrs:"維持約 12 hr/週",
   title:"持續投遞 · 面試準備 · 技能維持",
   days:[
-    { day:"每週二四 ☕", hrs:"各 1.5 hr", tasks:[
-      {type:"port", title:"投遞＋面試準備", hrs:"1.5 hr", detail:"每週投 5-10 家，針對有面試通知的公司深度研究。若面試中發現需要第二個案子，屆時啟動精簡版案子2（流程你已全部走過一遍，會快很多）。"}
+    { day:"每週二四 ", hrs:"各 1.5 hr", tasks:[
+      {type:"port", title:"投遞＋面試準備", hrs:"1.5 hr", detail:"每週投 5-10 家，針對有面試通知的公司深度研究。一到三月是設計業徵才旺季，這段時間投遞回應率最高。若面試中發現需要第二個案子，屆時啟動精簡版案子2（流程你已全部走過一遍，會快很多）。"}
     ]},
     { day:"週六", hrs:"4 hr", tasks:[
       {type:"port", title:"求職衝刺", hrs:"2.5 hr", detail:"研究公司、模擬面試、更新投遞清單。"},
@@ -943,11 +950,11 @@ function switchPage(p){
 
 function renderOverview(){
   const months=[
-    {label:"七月 · 起步（最低版）",range:[0,2]},
-    {label:"八月 · 設計發展（最低版）",range:[3,6]},
-    {label:"九月 · 圖面與模型（進階版）",range:[7,10]},
-    {label:"十月 · 作品集＋求職",range:[11,13]},
-    {label:"十月底起 · 全力求職",range:[14,14]},
+    {label:"九月 · 起步（最低版）",range:[0,1]},
+    {label:"十月 · 設計發展（最低版）",range:[2,5]},
+    {label:"十月底–十一月 · 圖面與模型",range:[6,10]},
+    {label:"十二月 · 作品集＋投遞",range:[11,13]},
+    {label:"十二月底起 · 全力求職",range:[14,14]},
   ];
   const c=document.getElementById('ov-content');c.innerHTML='';
   months.forEach(m=>{
@@ -995,7 +1002,7 @@ function showToast(msg){
 function init(){
   load();
   const now=new Date();
-  const w2start=new Date(now.getFullYear(),6,20);
+  const w2start=new Date(now.getFullYear(),8,21);
   const startWeek=now<w2start?0:Math.min(1+Math.floor((now-w2start)/(7*86400000)), WEEKS.length-1);
   curWeek=startWeek;
   renderWeek(curWeek);
