@@ -2,7 +2,12 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f5f4f0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="ID Tracker">
+<meta name="description" content="室內／建築設計轉職學習追蹤">
 <title>Wendy ID Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -173,6 +178,60 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 /* TOAST */
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:9px 18px;font-size:12px;font-weight:500;opacity:0;transition:all .3s;pointer-events:none;white-space:nowrap;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.1);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ── 今日焦點：開始按鈕 ── */
+.mini-play{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1px solid rgba(13,143,94,.4);background:#fff;color:var(--done);font-size:9px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;}
+.mini-play:active{background:#d4f5e9;}
+.durpick{display:flex;gap:5px;margin-top:10px;}
+.dur{flex:1;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 0;font-size:11px;font-family:'DM Mono',monospace;color:var(--text2);cursor:pointer;}
+.dur.sel{border-color:var(--done);color:var(--done);background:#e2f7ee;font-weight:500;}
+.startbtn{width:100%;margin-top:7px;background:var(--done);color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;}
+.startbtn:active{opacity:.85;}
+.start-note{font-size:10px;color:var(--text2);text-align:center;margin-top:6px;}
+.det-play{margin-left:auto;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:4px 9px;font-size:10px;font-family:'Noto Sans TC',sans-serif;color:var(--done);cursor:pointer;}
+
+/* ── 休息日卡 ── */
+.rest-card{margin:12px 18px 0;background:var(--surface);border:1px dashed var(--border);border-radius:12px;padding:13px 15px;}
+.rest-t{font-size:12px;font-weight:700;margin-bottom:3px;}
+.rest-s{font-size:11px;color:var(--text2);line-height:1.7;}
+.linkbtn{background:none;border:none;color:var(--cad);font-size:11px;font-weight:500;cursor:pointer;padding:0;font-family:'Noto Sans TC',sans-serif;text-decoration:underline;}
+
+/* ── 今天標記 ── */
+.day-header.is-today{background:#e2f7ee;border-left:3px solid var(--done);}
+.today-pin{font-size:9px;font-family:'DM Mono',monospace;background:var(--done);color:#fff;border-radius:20px;padding:1px 6px;margin-left:5px;vertical-align:1px;}
+.wd.now{box-shadow:0 0 0 2px rgba(13,143,94,.25);}
+.wts-under{color:var(--model);}
+
+/* ── 計時列 ── */
+.timerbar{position:fixed;left:0;right:0;bottom:calc(60px + env(safe-area-inset-bottom));z-index:150;background:var(--surface);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(0,0,0,.09);padding:11px 18px 12px;display:none;}
+.timerbar.on{display:block;}
+.tb-row{display:flex;align-items:center;gap:11px;}
+.tb-time{font-family:'DM Mono',monospace;font-size:27px;font-weight:500;line-height:1;letter-spacing:-.02em;flex-shrink:0;}
+.tb-title{flex:1;min-width:0;font-size:11px;color:var(--text2);line-height:1.35;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.tb-b{flex-shrink:0;border:1px solid var(--border);background:var(--surface2);border-radius:8px;padding:8px 11px;font-size:11px;font-weight:500;font-family:'Noto Sans TC',sans-serif;color:var(--text);cursor:pointer;}
+.tb-b.pri{background:var(--done);border-color:var(--done);color:#fff;}
+.tb-b.ghost{padding:8px 9px;color:var(--text3);background:none;border-color:transparent;}
+.tb-prog{height:3px;background:var(--border);border-radius:2px;margin-top:9px;overflow:hidden;}
+.tb-pf{height:100%;background:var(--done);width:0;transition:width 1s linear;}
+body.timing{padding-bottom:172px;}
+
+/* ── 週日回報 sheet ── */
+.modal{position:fixed;inset:0;background:rgba(26,26,24,.45);z-index:300;display:none;align-items:flex-end;}
+.modal.on{display:flex;}
+.sheet{background:var(--bg);width:100%;max-height:86vh;overflow-y:auto;border-radius:16px 16px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom));}
+.sheet-t{font-size:15px;font-weight:700;}
+.sheet-sub{font-size:11px;color:var(--text2);margin:3px 0 11px;}
+.sheet-pre{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px;font-size:12px;line-height:1.75;white-space:pre-wrap;word-break:break-word;-webkit-user-select:text;user-select:text;}
+.sheet-btns{display:flex;gap:8px;margin-top:12px;}
+.sheet-b{flex:1;padding:13px;border-radius:10px;border:1px solid var(--border);background:var(--surface2);font-size:13px;font-weight:500;font-family:'Noto Sans TC',sans-serif;cursor:pointer;color:var(--text);}
+.sheet-b.pri{background:var(--text);color:var(--bg);border-color:var(--text);}
+
+/* ── 備份 ── */
+.dataops{margin-top:26px;border-top:1px solid var(--border);padding-top:16px;}
+.dataops-l{font-size:10px;color:var(--text3);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.dataops-row{display:flex;gap:8px;}
+.dop{flex:1;text-align:center;padding:11px;border-radius:10px;border:1px solid var(--border);background:var(--surface);font-size:12px;font-family:'Noto Sans TC',sans-serif;color:var(--text);cursor:pointer;}
+.dataops-n{font-size:10px;color:var(--text3);line-height:1.6;margin-top:8px;}
 </style>
 </head>
 <body>
@@ -242,6 +301,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
   <button class="cab" id="cab" onclick="checkAll()">
     <span id="cab-icon">○</span><span id="cab-txt">本週全部打卡</span>
   </button>
+  <button class="cab" onclick="openReport()"><span>📤</span><span>產生本週回報（週日用）</span></button>
 </div>
 
 <!-- Overview -->
@@ -257,6 +317,38 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
     <div class="stk-l">連續打卡天數</div>
   </div>
   <div class="hm" id="hm"></div>
+  <div class="dataops">
+    <div class="dataops-l">資料備份</div>
+    <div class="dataops-row">
+      <button class="dop" onclick="exportData()">⬇ 匯出備份</button>
+      <label class="dop" for="impf">⬆ 匯入備份</label>
+      <input type="file" id="impf" accept="application/json,.json" style="display:none" onchange="importData(this)">
+    </div>
+    <div class="dataops-n">紀錄只存在這台裝置的瀏覽器裡，清除瀏覽資料就會不見。建議每個月匯出一次存到雲端硬碟。</div>
+  </div>
+</div>
+
+<div class="timerbar" id="timerbar">
+  <div class="tb-row">
+    <div class="tb-time" id="tb-time">00:00</div>
+    <div class="tb-title" id="tb-title"></div>
+    <button class="tb-b" id="tb-pause" onclick="pauseTimer()">暫停</button>
+    <button class="tb-b pri" onclick="finishTimer(false)">結束</button>
+    <button class="tb-b ghost" onclick="cancelTimer()" title="取消">✕</button>
+  </div>
+  <div class="tb-prog"><div class="tb-pf" id="tb-pf"></div></div>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeReport()">
+  <div class="sheet">
+    <div class="sheet-t">本週回報</div>
+    <div class="sheet-sub">複製後貼到對話裡，我會幫你看下週的量要不要調整。</div>
+    <div class="sheet-pre" id="sheet-pre"></div>
+    <div class="sheet-btns">
+      <button class="sheet-b" onclick="closeReport()">關閉</button>
+      <button class="sheet-b pri" onclick="copyReport()">複製</button>
+    </div>
+  </div>
 </div>
 
 <div class="bnav">
@@ -269,9 +361,8 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 
 <script>
 // ─── DATA ───────────────────────────────────────────────────────────────────
-// phase A = 四月 (weekends only, ~7hr/wk)
-// phase B = 五月起 (weekdays 2-3hr + weekends 6-8hr, ~22-28hr/wk)
-// Days: 六(Sat) 日(Sun) for phase A; 一三五 / 二四 / 六 / 日 for phase B
+// 每個 week 物件：{id,label,dateRange,phase,isModel,totalHrs,title,days:[{day,hrs,tasks:[{type,title,hrs,detail}]}]}
+// W1 起始日定義於 PLAN_START（2026/9/14 週一），之後每 7 天一週。
 
 const WEEKS = [
 {
@@ -614,184 +705,348 @@ const WEEKS = [
 
 const TAG_MAP={cad:"CAD",sku:"Sketch",draw:"手繪",port:"作品集",model:"模型"};
 const TAG_CLS={cad:"tag-cad",sku:"tag-sku",draw:"tag-draw",port:"tag-port",model:"tag-model"};
+const TAG_LBL={cad:"AutoCAD",sku:"SketchUp",draw:"手繪",port:"作品集",model:"模型"};
+const PLAN_START=new Date(2026,8,14);   // W1 起始：2026/9/14（一）
+const STORE='idtrk2';
 
-let curWeek=0, curPage='tracker', data={}, checkDates=[], remarks={}, actuals={}, curFilter='all';
+let curWeek=0,curPage='tracker',data={},checkDates=[],remarks={},actuals={},curFilter='all';
+let openDet={};            // 展開中的任務細節，重繪後保留
+let timer=null;            // {wi,di,ti,totalSec,endAt,left}
+let tickIv=null;
+let durMin=15;             // 預設單次專注長度
 
+// ─── STORAGE ────────────────────────────────────────────────────────────────
 function load(){
-  try{const r=localStorage.getItem('idtrk2');if(r){const p=JSON.parse(r);data=p.d||{};checkDates=p.c||[];remarks=p.r||{};actuals=p.a||{};}}catch(e){}
+  try{
+    const r=localStorage.getItem(STORE);
+    if(r){const p=JSON.parse(r);data=p.d||{};checkDates=p.c||[];remarks=p.r||{};actuals=p.a||{};timer=p.t||null;if(p.dm)durMin=p.dm;}
+  }catch(e){}
 }
 function save(){
-  try{localStorage.setItem('idtrk2',JSON.stringify({d:data,c:checkDates,r:remarks,a:actuals}));}catch(e){}
+  try{localStorage.setItem(STORE,JSON.stringify({d:data,c:checkDates,r:remarks,a:actuals,t:timer,dm:durMin}));}catch(e){}
 }
+
+// ─── HELPERS ────────────────────────────────────────────────────────────────
 function key(w,d,t){return `w${w}d${d}t${t}`;}
+function actKey(w,d,t){return `act_w${w}_d${d}_t${t}`;}
+function rmkKey(w,d){return `rmk_w${w}_d${d}`;}
 function isDone(w,d,t){return data[key(w,d,t)]===true;}
-function totalTasks(wIdx){return WEEKS[wIdx].days.reduce((s,d)=>s+d.tasks.length,0);}
-function doneTasks(wIdx){return WEEKS[wIdx].days.reduce((s,d,di)=>s+d.tasks.filter((_,ti)=>isDone(wIdx,di,ti)).length,0);}
+function totalTasks(wi){return WEEKS[wi].days.reduce((s,d)=>s+d.tasks.length,0);}
+function doneTasks(wi){return WEEKS[wi].days.reduce((s,d,di)=>s+d.tasks.filter((_,ti)=>isDone(wi,di,ti)).length,0);}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
-function toggle(wIdx,dIdx,tIdx){
-  const k=key(wIdx,dIdx,tIdx);
+function sod(d){const x=new Date(d);x.setHours(0,0,0,0);return x;}
+function weekStart(i){return new Date(PLAN_START.getFullYear(),PLAN_START.getMonth(),PLAN_START.getDate()+i*7);}
+function weekIdxFor(d){
+  const diff=Math.floor((sod(d)-PLAN_START)/86400000);
+  if(diff<0)return 0;
+  return Math.min(Math.floor(diff/7),WEEKS.length-1);
+}
+// 由「9/17（四）」推回真正的日期；W15+ 之類沒有日期的標籤回傳 null
+function dayDate(wi,di){
+  const raw=WEEKS[wi].days[di].day.split('（')[0].trim();
+  const m=raw.match(/^(\d{1,2})\/(\d{1,2})$/);
+  if(!m)return null;
+  const ws=weekStart(wi);
+  let y=ws.getFullYear();
+  if(+m[1]<ws.getMonth()+1)y++;          // 跨年保護
+  return new Date(y,+m[1]-1,+m[2]);
+}
+const WD='日一二三四五六';
+function markToday(){
+  const t=new Date().toDateString();
+  if(!checkDates.includes(t))checkDates.push(t);
+}
+
+function parseMin(str){
+  if(!str)return 0;
+  const hr=String(str).match(/([\d.]+)\s*hr/);
+  if(hr)return Math.round(parseFloat(hr[1])*60);
+  const mn=String(str).match(/([\d.]+)\s*min/);
+  if(mn)return Math.round(parseFloat(mn[1]));
+  return 0;
+}
+function fmtMin(m){
+  m=Math.round(m);
+  const h=Math.floor(m/60),r=m%60;
+  if(h>0&&r>0)return h+'h '+r+'m';
+  if(h>0)return h+'h';
+  if(r>0)return r+'m';
+  return '0';
+}
+function fmtClock(sec){
+  sec=Math.max(0,Math.round(sec));
+  return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');
+}
+function weekTargetMin(wi){
+  let s=0;WEEKS[wi].days.forEach(d=>d.tasks.forEach(t=>{s+=parseMin(t.hrs);}));return s;
+}
+function weekActualMin(wi){
+  let s=0;WEEKS[wi].days.forEach((d,di)=>d.tasks.forEach((_,ti)=>{s+=Math.round((actuals[actKey(wi,di,ti)]||0)*60);}));return s;
+}
+function tierOf(wi){
+  const m=String(WEEKS[wi].totalHrs||'').match(/（(.+?)）/);
+  return m?m[1]:'';
+}
+function hoursBadge(wi){
+  const t=tierOf(wi);
+  return fmtMin(weekTargetMin(wi))+(t?' · '+t:'');
+}
+
+// ─── ACTIONS ────────────────────────────────────────────────────────────────
+function toggle(wi,di,ti){
+  const k=key(wi,di,ti);
   data[k]=!data[k];
-  const today=new Date().toDateString();
-  if(data[k]&&!checkDates.includes(today))checkDates.push(today);
-  save();
-  renderWeek(curWeek);
-  renderToday();
-  updateStats();
-  updateDots();
+  if(data[k])markToday();
+  save();renderAll();
 }
-
-function renderToday(){
-  const el=document.getElementById('today-card');
-  if(!el) return;
-  const now=new Date();
-  const todayKey=(now.getMonth()+1)+'/'+now.getDate();
-  let found=null;
-  WEEKS.forEach((w,wi)=>{
-    w.days.forEach((d,di)=>{
-      if(d.day.split('（')[0]===todayKey) found={wi,di,d};
-    });
-  });
-  if(!found){el.style.display='none';el.innerHTML='';return;}
-  el.style.display='block';
-  const {wi,di,d}=found;
-  const doneCount=d.tasks.filter((_,ti)=>isDone(wi,di,ti)).length;
-  let html=`<div class="today-hdr"><span class="today-title">📌 今天的任務 · ${d.day}</span><span class="today-prog">${doneCount}/${d.tasks.length}</span></div>`;
-  d.tasks.forEach((t,ti)=>{
-    const dn=isDone(wi,di,ti);
-    html+=`<div class="today-task">
-      <span class="ttag ${TAG_CLS[t.type]}">${TAG_MAP[t.type]}</span>
-      <span class="tt-title${dn?' tdone':''}">${t.title} <span class="tt-hrs">· ${t.hrs}</span></span>
-      <div class="ck${dn?' done':''}" style="width:20px;height:20px;font-size:10px;" onclick="toggle(${wi},${di},${ti})">${dn?'✓':''}</div>
-    </div>`;
-  });
-  if(doneCount===d.tasks.length&&d.tasks.length>0){
-    html+=`<div class="today-done-msg">🎉 今天的任務全部完成，太棒了！</div>`;
-  }
-  el.innerHTML=html;
-}
-
 function checkAll(){
-  const w=WEEKS[curWeek];
-  const total=totalTasks(curWeek);
-  const done=doneTasks(curWeek);
-  const allDone=done===total;
-  const today=new Date().toDateString();
-  w.days.forEach((d,di)=>d.tasks.forEach((_,ti)=>{data[key(curWeek,di,ti)]=!allDone;}));
-  if(!allDone&&!checkDates.includes(today))checkDates.push(today);
-  save();
-  renderWeek(curWeek);
-  renderToday();
-  updateStats();
-  updateDots();
+  const total=totalTasks(curWeek),done=doneTasks(curWeek),allDone=done===total;
+  WEEKS[curWeek].days.forEach((d,di)=>d.tasks.forEach((_,ti)=>{data[key(curWeek,di,ti)]=!allDone;}));
+  if(!allDone)markToday();
+  save();renderAll();
   showToast(allDone?"已取消本週打卡":"🎉 本週全部完成！");
 }
-
 function setFilter(f){
   curFilter=f;
-  // update pill styles
   document.querySelectorAll('.fpill').forEach(p=>p.className='fpill');
   const map={all:'fall',cad:'fcad',sku:'fsku',draw:'fdraw',port:'fport',model:'fmodel'};
   const btn=document.querySelector(`.fpill[onclick="setFilter('${f}')"]`);
-  if(btn) btn.classList.add(map[f]||'fall');
+  if(btn)btn.classList.add(map[f]||'fall');
   renderWeek(curWeek);
 }
+function toggleDetail(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  el.classList.toggle('open');
+  openDet[id]=el.classList.contains('open');
+}
+function saveActualHM(k,wi){
+  const h=parseFloat((document.getElementById(k+'-h')||{}).value)||0;
+  const m=parseFloat((document.getElementById(k+'-m')||{}).value)||0;
+  actuals[k]=Math.round((h+m/60)*100)/100;
+  if(actuals[k]>0)markToday();
+  save();
+  updateWeekTimeSummary(wi);
+  updateStats();
+}
 
-function renderWeek(wIdx){
-  const w=WEEKS[wIdx];
+// ─── TIMER ──────────────────────────────────────────────────────────────────
+function setDur(m){durMin=m;save();renderToday();}
+function startTimer(wi,di,ti,mins){
+  mins=mins||durMin;
+  timer={wi,di,ti,totalSec:mins*60,endAt:Date.now()+mins*60000,left:null};
+  save();
+  clearInterval(tickIv);
+  paintTimer();
+  tickIv=setInterval(paintTimer,1000);
+  showToast('⏱ 開始了，只要撐 '+mins+' 分鐘');
+}
+function timerLeft(){
+  if(!timer)return 0;
+  if(timer.left!=null)return timer.left;
+  return Math.max(0,Math.round((timer.endAt-Date.now())/1000));
+}
+function paintTimer(){
+  const bar=document.getElementById('timerbar');
+  if(!bar)return;
+  if(!timer){
+    bar.classList.remove('on');document.body.classList.remove('timing');
+    clearInterval(tickIv);tickIv=null;return;
+  }
+  bar.classList.add('on');document.body.classList.add('timing');
+  const left=timerLeft();
+  const t=WEEKS[timer.wi].days[timer.di].tasks[timer.ti];
+  document.getElementById('tb-time').textContent=fmtClock(left);
+  document.getElementById('tb-title').textContent=t.title;
+  document.getElementById('tb-pf').style.width=Math.min(100,Math.round((1-left/timer.totalSec)*100))+'%';
+  document.getElementById('tb-pause').textContent=timer.left!=null?'繼續':'暫停';
+  if(left<=0&&timer.left==null)finishTimer(true);
+}
+function pauseTimer(){
+  if(!timer)return;
+  if(timer.left!=null){timer.endAt=Date.now()+timer.left*1000;timer.left=null;}
+  else timer.left=timerLeft();
+  save();paintTimer();
+}
+function finishTimer(auto){
+  if(!timer)return;
+  const used=Math.max(1,Math.round((timer.totalSec-timerLeft())/60));
+  const k=actKey(timer.wi,timer.di,timer.ti);
+  actuals[k]=Math.round(((actuals[k]||0)+used/60)*100)/100;
+  markToday();
+  timer=null;
+  clearInterval(tickIv);tickIv=null;
+  save();paintTimer();renderAll();
+  if(auto&&navigator.vibrate){try{navigator.vibrate([200,90,200]);}catch(e){}}
+  showToast(auto?`⏰ 時間到！已記錄 ${used} 分鐘`:`已記錄 ${used} 分鐘`);
+}
+function cancelTimer(){
+  if(!timer)return;
+  if(!confirm('取消這次計時？已經過的時間不會被記錄。'))return;
+  timer=null;clearInterval(tickIv);tickIv=null;save();paintTimer();
+}
+
+// ─── TODAY CARD ─────────────────────────────────────────────────────────────
+function findToday(){
+  const now=sod(new Date());
+  for(let wi=0;wi<WEEKS.length;wi++){
+    for(let di=0;di<WEEKS[wi].days.length;di++){
+      const dt=dayDate(wi,di);
+      if(dt&&+dt===+now)return{wi,di};
+    }
+  }
+  // W15+ 這種沒有日期的維持週：用星期幾比對
+  const wi=weekIdxFor(now);
+  if(wi===WEEKS.length-1){
+    const ch=WD[now.getDay()];
+    for(let di=0;di<WEEKS[wi].days.length;di++){
+      if(!dayDate(wi,di)&&WEEKS[wi].days[di].day.includes(ch))return{wi,di};
+    }
+  }
+  return null;
+}
+function findNext(){
+  const now=sod(new Date());
+  for(let wi=0;wi<WEEKS.length;wi++){
+    for(let di=0;di<WEEKS[wi].days.length;di++){
+      const dt=dayDate(wi,di);
+      if(dt&&dt>now)return{wi,di,dt};
+    }
+  }
+  return null;
+}
+function renderToday(){
+  const el=document.getElementById('today-card');
+  if(!el)return;
+  const f=findToday();
+
+  if(!f){
+    const n=findNext();
+    el.className='rest-card';el.style.display='block';
+    el.innerHTML=`<div class="rest-t">今天沒有排任務</div>
+      <div class="rest-s">休息也是課表的一部分，不用有罪惡感。${n?`下一場是 <b>${esc(WEEKS[n.wi].days[n.di].day)}</b>：${esc(WEEKS[n.wi].days[n.di].tasks[0].title)}`:''}</div>
+      ${n?`<div style="margin-top:8px"><button class="linkbtn" onclick="goWeek(${n.wi})">想提前做 → 跳到 ${WEEKS[n.wi].label}</button></div>`:''}`;
+    return;
+  }
+
+  const {wi,di}=f;
+  const d=WEEKS[wi].days[di];
+  el.className='today-card';el.style.display='block';
+  const doneCount=d.tasks.filter((_,ti)=>isDone(wi,di,ti)).length;
+  const firstUndone=d.tasks.findIndex((_,ti)=>!isDone(wi,di,ti));
+
+  let html=`<div class="today-hdr"><span class="today-title">📌 今天的任務 · ${esc(d.day)}</span><span class="today-prog">${doneCount}/${d.tasks.length}</span></div>`;
+  d.tasks.forEach((t,ti)=>{
+    const dn=isDone(wi,di,ti);
+    const spent=Math.round((actuals[actKey(wi,di,ti)]||0)*60);
+    html+=`<div class="today-task">
+      <span class="ttag ${TAG_CLS[t.type]}">${TAG_MAP[t.type]}</span>
+      <span class="tt-title${dn?' tdone':''}">${esc(t.title)} <span class="tt-hrs">· ${esc(t.hrs)}${spent?` · 已做 ${fmtMin(spent)}`:''}</span></span>
+      ${dn?'':`<button class="mini-play" onclick="startTimer(${wi},${di},${ti})" title="開始計時">▶</button>`}
+      <div class="ck${dn?' done':''}" style="width:20px;height:20px;font-size:10px;" onclick="toggle(${wi},${di},${ti})">${dn?'✓':''}</div>
+    </div>`;
+  });
+
+  if(firstUndone<0){
+    html+=`<div class="today-done-msg">🎉 今天的任務全部完成，太棒了！</div>`;
+  }else{
+    html+=`<div class="durpick">${[15,25,45].map(m=>`<button class="dur${durMin===m?' sel':''}" onclick="setDur(${m})">${m} 分</button>`).join('')}</div>
+      <button class="startbtn" onclick="startTimer(${wi},${di},${firstUndone})">▶ 先做 ${durMin} 分鐘就好</button>
+      <div class="start-note">不用想做完，計時器響了就可以停。</div>`;
+  }
+  el.innerHTML=html;
+}
+function goWeek(i){curWeek=i;switchPage('tracker');renderWeek(i);updateDots();scrollDot(i);}
+
+// ─── WEEK ───────────────────────────────────────────────────────────────────
+function renderWeek(wi){
+  const w=WEEKS[wi];
   document.getElementById('wlbl').textContent=w.dateRange||w.label;
   document.getElementById('wtitle').textContent=w.title;
   document.getElementById('wphase').textContent=w.phase;
   document.getElementById('wmodel-badge').style.display=w.isModel?'inline-block':'none';
-  document.getElementById('whrs-badge').textContent='🕐 '+w.totalHrs;
+  document.getElementById('whrs-badge').textContent='🕐 '+hoursBadge(wi);
   document.getElementById('wind').textContent=w.label;
   document.getElementById('hdr-sub').textContent=w.label+' · '+w.phase;
 
   const list=document.getElementById('task-list');
   list.innerHTML='';
-
+  const todayF=findToday();
   let anyVisible=false;
 
   w.days.forEach((day,di)=>{
-    const filteredTasks=curFilter==='all'?day.tasks:day.tasks.filter(t=>t.type===curFilter);
-    if(filteredTasks.length===0) return; // skip whole day section
+    const idxs=day.tasks.map((t,i)=>i).filter(i=>curFilter==='all'||day.tasks[i].type===curFilter);
+    if(!idxs.length)return;
     anyVisible=true;
 
-    const dayDone=filteredTasks.filter((_,ri)=>{
-      const ti=curFilter==='all'?ri:day.tasks.indexOf(filteredTasks[ri]);
-      return isDone(wIdx,di,ti);
-    }).length;
-    const dayTotal=filteredTasks.length;
-
+    const dayDone=idxs.filter(ti=>isDone(wi,di,ti)).length;
+    const isToday=todayF&&todayF.wi===wi&&todayF.di===di;
     const sec=document.createElement('div');
     sec.className='day-section';
-    const issat=day.day.includes('六');
-    const issun=day.day.includes('日');
-    const wkclass=issat?' weekend-sat':issun?' weekend-sun':'';
+    const wk=day.day.includes('六')?' weekend-sat':day.day.includes('日')?' weekend-sun':'';
     sec.innerHTML=`
-      <div class="day-header${wkclass}">
-        <span class="day-name">${day.day}</span>
+      <div class="day-header${wk}${isToday?' is-today':''}">
+        <span class="day-name">${esc(day.day)}${isToday?' <span class="today-pin">今天</span>':''}</span>
         <div class="day-meta">
-          <span class="day-hrs">${day.hrs}</span>
-          <span class="day-prog">${dayDone}/${dayTotal}</span>
+          <span class="day-hrs">${esc(day.hrs)}</span>
+          <span class="day-prog">${dayDone}/${idxs.length}</span>
         </div>
       </div>
-      <div class="day-tasks" id="day-body-${wIdx}-${di}"></div>
-    `;
+      <div class="day-tasks"></div>`;
     list.appendChild(sec);
     const body=sec.querySelector('.day-tasks');
 
-    filteredTasks.forEach((task)=>{
-      const ti=day.tasks.indexOf(task);
-      const done=isDone(wIdx,di,ti);
-      const actualKey=`act_w${wIdx}_d${di}_t${ti}`;
-      const actualVal=actuals[actualKey]||0;
-      const actualH=Math.floor(actualVal);
-      const actualM=Math.round((actualVal-actualH)*60);
+    idxs.forEach(ti=>{
+      const task=day.tasks[ti];
+      const done=isDone(wi,di,ti);
+      const ak=actKey(wi,di,ti);
+      const av=actuals[ak]||0;
+      const ah=Math.floor(av),am=Math.round((av-ah)*60);
+      const detId=`det-${wi}-${di}-${ti}`;
       const tc=document.createElement('div');
       tc.className='tc'+(done?' done':'');
       tc.innerHTML=`
-        <div class="tc-top" onclick="toggleDetail('det-${wIdx}-${di}-${ti}')">
+        <div class="tc-top" onclick="toggleDetail('${detId}')">
           <span class="ttag ${TAG_CLS[task.type]}">${TAG_MAP[task.type]}</span>
           <div class="tc-info">
-            <div class="tc-title">${task.title}</div>
-            <div class="tc-hrs">⏱ 目標 ${task.hrs}</div>
+            <div class="tc-title">${esc(task.title)}</div>
+            <div class="tc-hrs">⏱ 目標 ${esc(task.hrs)}${av>0?` · 實際 ${fmtMin(av*60)}`:''}</div>
           </div>
-          <div class="ck${done?' done':''}" onclick="event.stopPropagation();toggle(${wIdx},${di},${ti})">${done?'✓':''}</div>
+          <div class="ck${done?' done':''}" onclick="event.stopPropagation();toggle(${wi},${di},${ti})">${done?'✓':''}</div>
         </div>
-        <div class="tc-detail" id="det-${wIdx}-${di}-${ti}">
-          ${task.detail}
+        <div class="tc-detail${openDet[detId]?' open':''}" id="${detId}">
+          ${esc(task.detail)}
           <div class="actual-row">
             <span class="actual-label">實際花了</span>
-            <input class="actual-input" type="number" min="0" max="24" step="1" placeholder="0" value="${actualH||''}" id="${actualKey}-h" oninput="saveActualHM('${actualKey}',${wIdx})">
+            <input class="actual-input" type="number" inputmode="numeric" min="0" max="24" step="1" placeholder="0" value="${ah||''}" id="${ak}-h" oninput="saveActualHM('${ak}',${wi})">
             <span class="actual-unit">時</span>
-            <input class="actual-input" type="number" min="0" max="59" step="5" placeholder="0" value="${actualM||''}" id="${actualKey}-m" oninput="saveActualHM('${actualKey}',${wIdx})">
+            <input class="actual-input" type="number" inputmode="numeric" min="0" max="59" step="5" placeholder="0" value="${am||''}" id="${ak}-m" oninput="saveActualHM('${ak}',${wi})">
             <span class="actual-unit">分</span>
+            ${done?'':`<button class="det-play" onclick="event.stopPropagation();startTimer(${wi},${di},${ti})">▶ 計時 ${durMin} 分</button>`}
           </div>
-        </div>
-      `;
+        </div>`;
       body.appendChild(tc);
     });
 
-    // only show remark box when showing all tasks or when this day has tasks of the filtered type
     if(curFilter==='all'){
-      const remarkKey=`rmk_w${wIdx}_d${di}`;
-      const remarkWrap=document.createElement('div');
-      remarkWrap.className='remark-wrap';
-      remarkWrap.innerHTML=`
+      const rk=rmkKey(wi,di);
+      const wrap=document.createElement('div');
+      wrap.className='remark-wrap';
+      wrap.innerHTML=`
         <div class="remark-label">✏️ 今日學習備忘</div>
-        <textarea class="remark-input" id="${remarkKey}" placeholder="記下今天的收穫、卡關點、或想繼續做的事...">${remarks[remarkKey]||''}</textarea>
-        <div class="remark-saved" id="${remarkKey}-saved">已儲存</div>
-      `;
-      body.appendChild(remarkWrap);
-      const ta=remarkWrap.querySelector('textarea');
-      let saveTimer;
+        <textarea class="remark-input" id="${rk}" placeholder="記下今天的收穫、卡關點、或想繼續做的事...">${esc(remarks[rk]||'')}</textarea>
+        <div class="remark-saved" id="${rk}-saved">已儲存</div>`;
+      body.appendChild(wrap);
+      const ta=wrap.querySelector('textarea');
+      let tmr;
       ta.addEventListener('input',()=>{
-        remarks[remarkKey]=ta.value;
-        clearTimeout(saveTimer);
-        saveTimer=setTimeout(()=>{
+        remarks[rk]=ta.value;
+        clearTimeout(tmr);
+        tmr=setTimeout(()=>{
           save();
-          const savedEl=document.getElementById(remarkKey+'-saved');
-          if(savedEl){savedEl.classList.add('show');setTimeout(()=>savedEl.classList.remove('show'),1500);}
+          const s=document.getElementById(rk+'-saved');
+          if(s){s.classList.add('show');setTimeout(()=>s.classList.remove('show'),1500);}
         },600);
       });
     }
@@ -800,154 +1055,95 @@ function renderWeek(wIdx){
   if(!anyVisible){
     const msg=document.createElement('div');
     msg.className='no-task-msg';
-    const labels={cad:'AutoCAD',sku:'SketchUp',draw:'手繪',port:'作品集',model:'模型'};
-    msg.textContent=`本週沒有 ${labels[curFilter]||''} 的任務`;
+    msg.textContent=`本週沒有 ${TAG_LBL[curFilter]||''} 的任務`;
     list.appendChild(msg);
   }
 
-  const total=totalTasks(wIdx),done=doneTasks(wIdx),allDone=done===total;
+  const total=totalTasks(wi),done=doneTasks(wi),allDone=total>0&&done===total;
   const btn=document.getElementById('cab');
   btn.className='cab'+(allDone?' alldone':'');
   document.getElementById('cab-icon').textContent=allDone?'✓':'○';
   document.getElementById('cab-txt').textContent=allDone?'本週已全部完成':'本週全部打卡';
-  updateWeekTimeSummary(wIdx);
+  updateWeekTimeSummary(wi);
 }
 
-function saveActualHM(key, wIdx){
-  const hEl=document.getElementById(key+'-h');
-  const mEl=document.getElementById(key+'-m');
-  const h=parseFloat(hEl?.value)||0;
-  const m=parseFloat(mEl?.value)||0;
-  actuals[key]=Math.round((h+m/60)*100)/100;
-  save();
-  updateWeekTimeSummary(wIdx);
-}
-
-function parseMin(str){
-  if(!str) return 0;
-  const hr=str.match(/([\d.]+)\s*hr/);
-  if(hr) return Math.round(parseFloat(hr[1])*60);
-  const mn=str.match(/([\d.]+)\s*min/);
-  if(mn) return Math.round(parseFloat(mn[1]));
-  return 0;
-}
-
-function fmtMin(totalMin){
-  const h=Math.floor(totalMin/60);
-  const m=totalMin%60;
-  if(h>0&&m>0) return h+'h '+m+'m';
-  if(h>0) return h+'h';
-  if(m>0) return m+'m';
-  return '0';
-}
-
-function updateWeekTimeSummary(wIdx){
-  const w=WEEKS[wIdx];
-
-  // sum target in minutes
-  let targetMin=0;
-  w.days.forEach(day=>{
-    day.tasks.forEach(task=>{ targetMin+=parseMin(task.hrs); });
-  });
-
-  // sum actuals in minutes
-  let actualMin=0;
-  w.days.forEach((day,di)=>{
-    day.tasks.forEach((_,ti)=>{
-      const v=actuals[`act_w${wIdx}_d${di}_t${ti}`]||0;
-      actualMin+=Math.round(v*60);
-    });
-  });
-
-  const tEl=document.getElementById('wts-target');
-  const aEl=document.getElementById('wts-actual');
-  const dEl=document.getElementById('wts-diff');
-  if(!tEl) return;
-
-  tEl.textContent=targetMin>0?fmtMin(targetMin):'—';
-  aEl.textContent=actualMin>0?fmtMin(actualMin):'0';
-
-  if(targetMin>0&&actualMin>0){
-    const diff=actualMin-targetMin;
-    const sign=diff>=0?'+':'-';
-    dEl.textContent=sign+fmtMin(Math.abs(diff));
-    dEl.className='wts-val '+(diff>0?'wts-over':'wts-ok');
-  } else {
-    dEl.textContent='—';
-    dEl.className='wts-val';
+function updateWeekTimeSummary(wi){
+  const tMin=weekTargetMin(wi),aMin=weekActualMin(wi);
+  const tEl=document.getElementById('wts-target'),aEl=document.getElementById('wts-actual'),dEl=document.getElementById('wts-diff');
+  if(!tEl)return;
+  tEl.textContent=tMin>0?fmtMin(tMin):'—';
+  aEl.textContent=aMin>0?fmtMin(aMin):'0';
+  if(tMin>0&&aMin>0){
+    const diff=aMin-tMin;
+    dEl.textContent=(diff>=0?'+':'-')+fmtMin(Math.abs(diff));
+    dEl.className='wts-val '+(diff>=0?'wts-ok':'wts-under');
+  }else{
+    dEl.textContent='—';dEl.className='wts-val';
   }
 }
 
-function toggleDetail(id){
-  const el=document.getElementById(id);
-  if(el)el.classList.toggle('open');
-}
-
+// ─── STATS / DOTS ───────────────────────────────────────────────────────────
 function updateStats(){
   const total=WEEKS.reduce((s,_,i)=>s+doneTasks(i),0);
+  const allTotal=WEEKS.reduce((s,_,i)=>s+totalTasks(i),0);
   const wdone=WEEKS.filter((_,i)=>{const t=totalTasks(i);return t>0&&doneTasks(i)===t;}).length;
   const streak=calcStreak();
-  const allTotal=WEEKS.reduce((s,_,i)=>s+totalTasks(i),0);
   document.getElementById('s-total').textContent=WEEKS.length;
   document.getElementById('s-wdone').textContent=wdone;
   document.getElementById('s-tasks').textContent=total;
   document.getElementById('s-streak').textContent=streak;
   document.getElementById('stk-n').textContent=streak;
-  document.getElementById('pfill').style.width=Math.round(total/allTotal*100)+'%';
+  document.getElementById('pfill').style.width=(allTotal?Math.round(total/allTotal*100):0)+'%';
 }
-
 function calcStreak(){
   if(!checkDates.length)return 0;
   const sorted=[...new Set(checkDates)].sort((a,b)=>new Date(b)-new Date(a));
-  let streak=0,cur=new Date();cur.setHours(0,0,0,0);
-  for(let d of sorted){
-    const dd=new Date(d);dd.setHours(0,0,0,0);
+  let streak=0,cur=sod(new Date());
+  for(const d of sorted){
+    const dd=sod(new Date(d));
     const diff=Math.round((cur-dd)/86400000);
     if(diff<=1){streak++;cur=dd;}else break;
   }
   return streak;
 }
-
 function updateDots(){
   const c=document.getElementById('wdots');c.innerHTML='';
-  WEEKS.forEach((_,i)=>{
+  const nowW=weekIdxFor(new Date());
+  WEEKS.forEach((w,i)=>{
     const done=doneTasks(i),total=totalTasks(i);
     const d=document.createElement('div');
     d.className='wd';
-    const aprShort=['4/13','4/19','4/21','4/26'];
-    d.textContent=WEEKS[i].label;
+    d.textContent=w.label;
     d.style.fontSize='9px';
     if(i===curWeek)d.classList.add('active');
+    if(i===nowW)d.classList.add('now');
     if(total>0&&done===total)d.classList.add('full');
     else if(done>0)d.classList.add('part');
-    d.onclick=()=>{curWeek=i;renderWeek(i);updateDots();scrollDot(i);switchPage('tracker');};
+    d.onclick=()=>goWeek(i);
     c.appendChild(d);
   });
 }
-
 function scrollDot(i){
   const dots=document.querySelectorAll('.wd');
-  if(dots[i])dots[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  if(dots[i]&&dots[i].scrollIntoView)dots[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
 }
-
 function chgWeek(dir){
   const n=curWeek+dir;
-  if(n>=0&&n<WEEKS.length){curWeek=n;renderWeek(n);updateDots();scrollDot(n);if(curPage!=='tracker')switchPage('tracker');}
+  if(n>=0&&n<WEEKS.length)goWeek(n);
 }
-
 function switchPage(p){
   curPage=p;
-  const pages=['tracker','overview','streak'];
-  pages.forEach(pg=>{
+  ['tracker','overview','streak'].forEach(pg=>{
     const el=document.getElementById('page-'+pg);
-    if(pg==='tracker'){el.style.display=p==='tracker'?'block':'none';}
-    else{el.classList.toggle('active',p===pg);}
+    if(pg==='tracker')el.style.display=p==='tracker'?'block':'none';
+    else el.classList.toggle('active',p===pg);
     document.getElementById('nav-'+pg).classList.toggle('active',p===pg);
   });
   if(p==='overview')renderOverview();
   if(p==='streak')renderHeatmap();
 }
 
+// ─── OVERVIEW / HEATMAP ─────────────────────────────────────────────────────
 function renderOverview(){
   const months=[
     {label:"九月 · 起步（最低版）",range:[0,1]},
@@ -960,60 +1156,137 @@ function renderOverview(){
   months.forEach(m=>{
     const sec=document.createElement('div');sec.className='mo-sec';
     sec.innerHTML=`<div class="mo-lbl">${m.label}</div>`;
-    for(let i=m.range[0];i<=m.range[1];i++){
+    for(let i=m.range[0];i<=m.range[1]&&i<WEEKS.length;i++){
       const w=WEEKS[i];
-      const done=doneTasks(i),total=totalTasks(i);
+      const flat=[];
+      w.days.forEach((d,di)=>d.tasks.forEach((_,ti)=>flat.push([di,ti])));
+      const done=doneTasks(i),total=flat.length;
+      const dots=flat.slice(0,8).map(([di,ti])=>`<div class="ovd${isDone(i,di,ti)?' done':''}"></div>`).join('');
       const row=document.createElement('div');row.className='ov-row';
-      const dotsHtml=Array.from({length:Math.min(total,8)},(_,j)=>`<div class="ovd${isDone(i,Math.floor(j/w.days[0].tasks.length),j%w.days[0].tasks.length)?' done':''}"></div>`).join('');
       row.innerHTML=`
         <div class="ov-num">${w.label}</div>
         <div class="ov-info">
-          <div class="ov-t">${w.title}</div>
-          <div class="ov-s">${done}/${total} · ${w.totalHrs}</div>
+          <div class="ov-t">${esc(w.title)}</div>
+          <div class="ov-s">${done}/${total} · ${hoursBadge(i)}</div>
         </div>
-        <div class="ov-ds">${dotsHtml}</div>
-      `;
-      row.onclick=()=>{curWeek=i;renderWeek(i);switchPage('tracker');updateDots();scrollDot(i);};
+        <div class="ov-ds">${dots}</div>`;
+      row.onclick=()=>goWeek(i);
       sec.appendChild(row);
     }
     c.appendChild(sec);
   });
 }
-
 function renderHeatmap(){
   const hm=document.getElementById('hm');hm.innerHTML='';
-  for(let i=0;i<WEEKS.length;i++){
+  WEEKS.forEach((w,i)=>{
     const done=doneTasks(i),total=totalTasks(i);
     const level=total===0?0:Math.ceil(done/total*4);
     const cell=document.createElement('div');
     cell.className=`hc h${level}`;
-    cell.title=WEEKS[i].label;
-    cell.onclick=()=>{curWeek=i;renderWeek(i);switchPage('tracker');updateDots();};
+    cell.title=w.label+' '+done+'/'+total;
+    cell.onclick=()=>goWeek(i);
     hm.appendChild(cell);
+  });
+}
+
+// ─── 週日回報 ───────────────────────────────────────────────────────────────
+function buildReport(wi){
+  const w=WEEKS[wi];
+  const total=totalTasks(wi),done=doneTasks(wi);
+  const tgt=weekTargetMin(wi),act=weekActualMin(wi);
+  const L=[];
+  L.push(`【${w.label} 進度回報 · ${w.dateRange}】`);
+  L.push(`主題：${w.title}`);
+  L.push(`完成：${done}/${total} 項`);
+  L.push(`時數：實際 ${fmtMin(act)} ／ 目標 ${fmtMin(tgt)}`);
+  const miss=[];
+  w.days.forEach((d,di)=>d.tasks.forEach((t,ti)=>{if(!isDone(wi,di,ti))miss.push(`${d.day} ${t.title}`);}));
+  L.push('');
+  if(miss.length){L.push('還沒做的：');miss.forEach(x=>L.push('· '+x));}
+  else L.push('本週全部完成 ✅');
+  const rm=[];
+  w.days.forEach((d,di)=>{const v=(remarks[rmkKey(wi,di)]||'').trim();if(v)rm.push(`${d.day}：${v}`);});
+  if(rm.length){L.push('');L.push('備忘：');rm.forEach(x=>L.push('· '+x));}
+  L.push('');
+  L.push('卡在哪 / 下週想調整：');
+  return L.join('\n');
+}
+function openReport(){
+  document.getElementById('sheet-pre').textContent=buildReport(curWeek);
+  document.getElementById('modal').classList.add('on');
+}
+function closeReport(){document.getElementById('modal').classList.remove('on');}
+function copyReport(){
+  const txt=document.getElementById('sheet-pre').textContent;
+  const done=()=>showToast('已複製，貼到對話裡就好');
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(fallbackCopy);
+  }else fallbackCopy();
+  function fallbackCopy(){
+    const ta=document.createElement('textarea');
+    ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');done();}catch(e){showToast('請長按上方文字複製');}
+    ta.remove();
   }
 }
 
+// ─── 備份 ───────────────────────────────────────────────────────────────────
+function exportData(){
+  const payload={app:'id-tracker',v:2,exportedAt:new Date().toISOString(),d:data,c:checkDates,r:remarks,a:actuals};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='id-tracker-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  showToast('已匯出備份檔');
+}
+function importData(input){
+  const file=input.files&&input.files[0];
+  input.value='';
+  if(!file)return;
+  const fr=new FileReader();
+  fr.onload=()=>{
+    try{
+      const p=JSON.parse(fr.result);
+      if(!p||typeof p!=='object')throw new Error('bad');
+      data=Object.assign({},data,p.d||{});
+      checkDates=[...new Set([...checkDates,...(p.c||[])])];
+      remarks=Object.assign({},remarks,p.r||{});
+      actuals=Object.assign({},actuals,p.a||{});
+      save();renderAll();showToast('備份已匯入（與現有紀錄合併）');
+    }catch(e){showToast('檔案格式不正確');}
+  };
+  fr.readAsText(file);
+}
+
+// ─── MISC ───────────────────────────────────────────────────────────────────
 function showToast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2500);
+  clearTimeout(showToast._t);
+  showToast._t=setTimeout(()=>t.classList.remove('show'),2500);
 }
-
+function renderAll(){
+  renderWeek(curWeek);renderToday();updateStats();updateDots();
+  if(curPage==='overview')renderOverview();
+  if(curPage==='streak')renderHeatmap();
+}
 function init(){
   load();
-  const now=new Date();
-  const w2start=new Date(now.getFullYear(),8,21);
-  const startWeek=now<w2start?0:Math.min(1+Math.floor((now-w2start)/(7*86400000)), WEEKS.length-1);
-  curWeek=startWeek;
-  renderWeek(curWeek);
-  renderToday();
-  updateDots();
-  updateStats();
+  curWeek=weekIdxFor(new Date());
+  renderAll();
   scrollDot(curWeek);
   setFilter('all');
+  if(timer){
+    if(timer.left==null&&timer.endAt<=Date.now())finishTimer(true);
+    else{clearInterval(tickIv);paintTimer();tickIv=setInterval(paintTimer,1000);}
+  }
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&timer)paintTimer();});
 }
-
 init();
+
 </script>
 </body>
 </html>
