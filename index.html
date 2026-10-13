@@ -137,6 +137,7 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 .start-hint{font-size:10px;color:var(--text2);text-align:center;margin-top:5px;}
 .timer-box{margin-top:10px;padding:10px;border-radius:10px;background:#fff;border:1px dashed rgba(13,143,94,.45);font-size:13px;font-weight:500;text-align:center;color:var(--done);font-family:'DM Mono','Noto Sans TC',monospace;}
 .rest-msg{font-size:12px;color:var(--text2);line-height:1.6;}
+.tc-detail a{color:var(--cad);}
 .today-done-msg{font-size:11px;color:var(--done);margin-top:8px;font-weight:500;}
 
 /* BOTTOM NAV */
@@ -281,51 +282,55 @@ body{background:var(--bg);color:var(--text);font-family:'Noto Sans TC',sans-seri
 const WEEKS = [
  {
   "label": "W1",
-  "dateRange": "9/28 – 10/4",
+  "dateRange": "10/12 – 10/18",
   "phase": "啟動期 · 每週約 2 小時",
   "isModel": false,
   "totalHrs": "約 1 hr 50 min",
   "title": "只要開始：裝好軟體、畫出第一個房間",
   "days": [
    {
-    "day": "9/29（二）",
+    "day": "10/13（二）",
     "hrs": "5 min · 今天做了就是開始",
     "tasks": [
      {
       "type": "cad",
-      "title": "下載 AutoCAD 試用版",
+      "title": "AutoCAD #1｜下載試用版",
       "hrs": "5 min",
-      "detail": "打開 Autodesk 官網，找到 AutoCAD 免費試用，按下下載。今天只要「按下下載」就算完成，安裝可以下次再說。這是整個計畫的第一步。"
+      "detail": "【練】打開 Autodesk 官網，找到 AutoCAD 免費試用，按下下載。<br>【完成】下載開始就算完成。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "10/1（四）",
+    "day": "10/15（四）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
       "type": "cad",
-      "title": "安裝 AutoCAD＋打開 SketchUp Free",
+      "title": "AutoCAD #2｜安裝＋單位設定",
       "hrs": "15 min",
-      "detail": "把 AutoCAD 裝好、開啟確認能用；再打開 sketchup.com 登入 SketchUp Free，看一眼介面就可以關掉。"
+      "detail": "【練】安裝後開新檔，輸入 UNITS 把單位設成「公分」。看一眼畫面：上方功能區、中間繪圖區、下方指令列。順便打開 sketchup.com 登入。<br>【完成】軟體能開、單位是公分。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "10/3（六）",
+    "day": "10/17（六）",
     "hrs": "1 hr 30 min",
     "tasks": [
      {
       "type": "cad",
-      "title": "📸 AutoCAD 跟著教學畫第一個房間",
+      "title": "📸 AutoCAD #3｜平面圖 第 1 集",
       "hrs": "1 hr",
-      "detail": "跟著 YouTube「CAD CAM Tutorials」AutoCAD 入門第一集，一邊看一邊畫，畫一個 3×4m 的房間框（Line、Offset、Trim）。畫完截圖，存進手機新建的「轉職作品」相簿——這是你的第一個成品。"
+      "detail": "【看】<a href=\"https://www.youtube.com/watch?v=6QKFgdDg5Yg\" target=\"_blank\">AutoCAD Floor Plan Tutorial for Beginners - 1</a>（約 20 分）　跟著影片同步操作，隨時暫停。<br>【練】關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。第一次常用到的指令：L 直線、O 偏移、TR 修剪，打在下方指令列後按 Enter。<br>【完成】自己重畫出第 1 集的進度，截圖存進「轉職作品」相簿。",
+      "split": "看 20 分＋練 40 分"
      },
      {
       "type": "sku",
-      "title": "SketchUp 空白盒子",
+      "title": "SketchUp #1｜入門：平面圖變立體",
       "hrs": "30 min",
-      "detail": "跟著 The SketchUp Essentials 入門影片，拉出一個 5m×4m×2.8m 的盒子。只要感受推拉工具和旋轉視角就好。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+SketchUp+Floor+Plan+Tutorial+for+Beginners\" target=\"_blank\">SketchUp Floor Plan Tutorial for Beginners</a>（約 13 分）　跟著影片同步操作，隨時暫停。<br>【練】自己做一個 5×4×2.8m 的盒子：R 畫矩形（打 500,400）、P 推拉（打 280）、滑鼠中鍵旋轉。<br>【完成】做出盒子，能從不同角度看它。",
+      "split": "看 13 分＋練 17 分"
      }
     ]
    }
@@ -334,14 +339,14 @@ const WEEKS = [
  },
  {
   "label": "W2",
-  "dateRange": "10/5 – 10/11",
+  "dateRange": "10/19 – 10/25",
   "phase": "啟動期 · 每週約 2 小時",
   "isModel": false,
   "totalHrs": "約 2 hr",
   "title": "手感回來：自己畫一次、存下喜歡的設計",
   "days": [
    {
-    "day": "10/6（二）",
+    "day": "10/20（二）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
@@ -353,26 +358,28 @@ const WEEKS = [
     ]
    },
    {
-    "day": "10/8（四）",
+    "day": "10/22（四）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
       "type": "sku",
-      "title": "SketchUp：在盒子上開一個門洞",
+      "title": "SketchUp #2｜開門洞",
       "hrs": "15 min",
-      "detail": "在盒子牆面畫一個 90×210cm 的矩形，用推拉工具推穿牆面。從 2D 變 3D 的那一刻就是 SketchUp 的核心。"
+      "detail": "【練】在盒子頂面用 F 向內偏移 15 做出牆厚；牆面用 T 捲尺定位，R 畫 90×210 的門，P 推穿。<br>【完成】盒子變成有牆厚、有門洞的房間。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "10/10（六）",
+    "day": "10/24（六）",
     "hrs": "1 hr 30 min",
     "tasks": [
      {
       "type": "cad",
-      "title": "📸 AutoCAD 不看教學重畫房間＋加一扇門",
+      "title": "📸 AutoCAD #4｜平面圖 第 2、3 集",
       "hrs": "1 hr",
-      "detail": "不看影片自己畫一次，卡住才查。再用 Arc 畫一扇 90cm 的門。截圖存進「轉職作品」相簿。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+Floor+Plan+Tutorial+for+Beginners+-+2\" target=\"_blank\">AutoCAD Floor Plan Tutorial for Beginners - 2</a>（約 6 分）、<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+Floor+Plan+Tutorial+for+Beginners+-+3\" target=\"_blank\">AutoCAD Floor Plan Tutorial for Beginners - 3</a>（約 7 分）　跟著影片同步操作，隨時暫停。<br>【練】先不看影片，把 #3 的圖從頭重畫一次（10 分鐘內）；再關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。<br>【完成】圖面進度追上第 3 集。截圖存檔。",
+      "split": "看 15 分＋練 45 分"
      },
      {
       "type": "port",
@@ -387,26 +394,27 @@ const WEEKS = [
  },
  {
   "label": "W3",
-  "dateRange": "10/12 – 10/18",
+  "dateRange": "10/26 – 11/1",
   "phase": "啟動期 · 每週約 2 小時",
   "isModel": false,
   "totalHrs": "約 2 hr",
   "title": "手繪暖身：畫出第一張透視圖",
   "days": [
    {
-    "day": "10/13（二）",
+    "day": "10/27（二）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
       "type": "draw",
-      "title": "手繪暖身：A4 畫滿直線",
+      "title": "手繪 #1｜直線",
       "hrs": "15 min",
-      "detail": "不用尺，畫橫線、直線、平行線，畫滿一張就好。只是讓手重新記得拿筆的感覺。"
+      "detail": "【練】手腕不動、用手臂帶筆；先點起點終點，眼睛看終點畫過去。橫、直、斜各一排。<br>【完成】一張 A4 畫滿。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "10/15（四）",
+    "day": "10/29（四）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
@@ -418,20 +426,22 @@ const WEEKS = [
     ]
    },
    {
-    "day": "10/17（六）",
+    "day": "10/31（六）",
     "hrs": "1 hr 30 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "📸 手繪一點透視：一個空房間",
+      "title": "📸 手繪 #2｜一點透視入門",
       "hrs": "1 hr",
-      "detail": "設一個消點、一條視平線（人眼高度約 1.5m），畫出地板、天花、三面牆和一扇窗。拍照存進「轉職作品」相簿。"
+      "detail": "【看】<a href=\"https://www.youtube.com/watch?v=IEcCAQrTiwE\" target=\"_blank\">One-Point Perspective Street Drawing</a>（跟著畫，可暫停）　跟著影片同步操作，隨時暫停。<br>【練】看完後自己畫一個空房間：視平線、一個消點、後牆矩形，從消點穿過後牆四角拉出地板天花和兩面牆，再加一扇窗。<br>【完成】一張有窗的一點透視房間，拍照存檔。",
+      "split": "看 20 分＋練 40 分"
      },
      {
       "type": "cad",
-      "title": "AutoCAD 建立圖層",
+      "title": "AutoCAD #5｜平面圖 第 4 集",
       "hrs": "30 min",
-      "detail": "建立「牆體／門窗／標註」三個圖層，設不同顏色，把上週的房間分到對應圖層。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+Floor+Plan+Tutorial+for+Beginners+-+4\" target=\"_blank\">AutoCAD Floor Plan Tutorial for Beginners - 4</a>（約 16 分）　跟著影片同步操作，隨時暫停。<br>【練】關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。<br>【完成】圖面進度追上第 4 集。",
+      "split": "看 15 分＋練 15 分"
      }
     ]
    }
@@ -440,14 +450,14 @@ const WEEKS = [
  },
  {
   "label": "W4",
-  "dateRange": "10/19 – 10/25",
+  "dateRange": "11/2 – 11/8",
   "phase": "啟動期 · 每週約 2 小時",
   "isModel": false,
   "totalHrs": "約 2 hr",
   "title": "第一個案例：看懂別人怎麼設計",
   "days": [
    {
-    "day": "10/20（二）",
+    "day": "11/3（二）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
@@ -459,19 +469,20 @@ const WEEKS = [
     ]
    },
    {
-    "day": "10/22（四）",
+    "day": "11/5（四）",
     "hrs": "15 min · 10 分鐘就算數",
     "tasks": [
      {
       "type": "draw",
-      "title": "手繪分析符號：箭頭、泡泡、視線",
+      "title": "手繪 #3｜分析圖符號",
       "hrs": "15 min",
-      "detail": "動線箭頭（粗細代表主次）、區域泡泡、視線錐，各畫幾遍。這是分析圖的基本語言。"
+      "detail": "【練】粗箭頭＝主動線、細箭頭＝次動線、泡泡大小＝空間大小、扇形＝視線。各畫一排。<br>【完成】每種符號畫得出不同粗細大小。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "10/24（六）",
+    "day": "11/7（六）",
     "hrs": "1 hr 30 min",
     "tasks": [
      {
@@ -482,9 +493,10 @@ const WEEKS = [
      },
      {
       "type": "draw",
-      "title": "一點透視：加入家具",
+      "title": "手繪 #4｜一點透視：放家具",
       "hrs": "30 min",
-      "detail": "在上週的透視房間裡加一張沙發和一張桌子，感受家具在透視裡的大小。"
+      "detail": "【練】先在地板上畫家具的「腳印」（邊線往消點收），再從四角往上拉高度。<br>【完成】家具穩穩站在地板上。",
+      "split": "全程自己練"
      }
     ]
    }
@@ -493,14 +505,14 @@ const WEEKS = [
  },
  {
   "label": "W5",
-  "dateRange": "10/26 – 11/1",
+  "dateRange": "11/9 – 11/15",
   "phase": "暖機期 · 每週約 3.5 小時",
   "isModel": false,
   "totalHrs": "約 3 hr 30 min",
   "title": "案例1 完成：作品集的第一頁",
   "days": [
    {
-    "day": "10/27（二）",
+    "day": "11/10（二）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -512,7 +524,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "10/29（四）",
+    "day": "11/12（四）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -524,7 +536,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "10/31（六）",
+    "day": "11/14（六）",
     "hrs": "2 hr 30 min",
     "tasks": [
      {
@@ -535,22 +547,24 @@ const WEEKS = [
      },
      {
       "type": "cad",
-      "title": "CAD 臨摹案例1 的配置圖",
+      "title": "AutoCAD #6｜平面圖 第 5、6 集（完成第一張平面）",
       "hrs": "1 hr",
-      "detail": "在 AutoCAD 描出建築量體、基地邊界、道路和景觀範圍。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+Floor+Plan+Tutorial+for+Beginners+-+5\" target=\"_blank\">AutoCAD Floor Plan Tutorial for Beginners - 5</a>（約 15 分）、<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+Floor+Plan+Tutorial+for+Beginners+-+6\" target=\"_blank\">AutoCAD Floor Plan Tutorial for Beginners - 6</a>（約 8 分）　跟著影片同步操作，隨時暫停。<br>【練】關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。<br>【完成】完成整張平面圖——你的第一張完整 CAD 圖！",
+      "split": "看 25 分＋練 35 分"
      }
     ]
    },
    {
-    "day": "11/1（日）",
+    "day": "11/15（日）",
     "hrs": "1 hr · 選做",
     "tasks": [
      {
       "type": "draw",
-      "title": "一點透視：加入人和樹",
+      "title": "手繪 #4 延伸｜加入人和樹（選做）",
       "hrs": "1 hr",
-      "detail": "畫一個建築外部的廣場，加入 1.7m 高的人和樹，感受外部空間的尺度。",
-      "opt": true
+      "detail": "【練】人眼高度＝視平線，所以每個人的頭都落在視平線上，只是遠近大小不同。<br>【完成】畫面裡有 3 個不同距離的人。",
+      "opt": true,
+      "split": "全程自己練"
      }
     ]
    }
@@ -559,14 +573,14 @@ const WEEKS = [
  },
  {
   "label": "W6",
-  "dateRange": "11/2 – 11/8",
+  "dateRange": "11/16 – 11/22",
   "phase": "🌿 緩衝週",
   "isModel": false,
   "totalHrs": "補做週",
   "title": "緩衝週：補做，或好好休息",
   "days": [
    {
-    "day": "11/3（二）",
+    "day": "11/17（二）",
     "hrs": "10 min · 10 分鐘就算數",
     "tasks": [
      {
@@ -578,7 +592,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/7（六）",
+    "day": "11/21（六）",
     "hrs": "1 hr 30 min · 選做",
     "tasks": [
      {
@@ -595,14 +609,14 @@ const WEEKS = [
  },
  {
   "label": "W7",
-  "dateRange": "11/9 – 11/15",
+  "dateRange": "11/23 – 11/29",
   "phase": "暖機期 · 每週約 3.5 小時",
   "isModel": false,
   "totalHrs": "約 3 hr 30 min",
   "title": "案例2：更快、更深",
   "days": [
    {
-    "day": "11/10（二）",
+    "day": "11/24（二）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -614,7 +628,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/12（四）",
+    "day": "11/26（四）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -626,7 +640,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/14（六）",
+    "day": "11/28（六）",
     "hrs": "2 hr 30 min",
     "tasks": [
      {
@@ -637,22 +651,24 @@ const WEEKS = [
      },
      {
       "type": "draw",
-      "title": "分析符號速查表（A4）",
+      "title": "手繪 #5｜分析符號速查表",
       "hrs": "30 min",
-      "detail": "把練過的分析符號整理到一張 A4，之後畫分析圖隨時參考。"
+      "detail": "【練】把用過的分析符號整理到一張 A4，每個旁邊寫意思。<br>【完成】一張可以貼在桌上的速查表。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "11/15（日）",
+    "day": "11/29（日）",
     "hrs": "1 hr · 選做",
     "tasks": [
      {
-      "type": "draw",
-      "title": "自由手繪",
+      "type": "cad",
+      "title": "AutoCAD 加碼 A｜家具圖 第 1、2 集（選做）",
       "hrs": "1 hr",
-      "detail": "畫什麼都可以，讓手繪保持好玩。",
-      "opt": true
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+2D+Furniture+Drawings+for+Interior+Design+1\" target=\"_blank\">AutoCAD 2D Furniture Drawings for Interior Design 1</a>（約 8 分）、<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+2D+Furniture+Drawings+for+Interior+Design+2\" target=\"_blank\">AutoCAD 2D Furniture Drawings for Interior Design 2</a>（約 20 分）　跟著影片同步操作，隨時暫停。<br>【練】關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。<br>【完成】畫出影片裡的家具。室內設計平面一定會用到。",
+      "opt": true,
+      "split": "看 28 分＋練 32 分"
      }
     ]
    }
@@ -661,14 +677,14 @@ const WEEKS = [
  },
  {
   "label": "W8",
-  "dateRange": "11/16 – 11/22",
+  "dateRange": "11/30 – 12/6",
   "phase": "暖機期 · 每週約 3.5 小時",
   "isModel": false,
   "totalHrs": "約 3 hr 30 min",
   "title": "決定題目、認識基地",
   "days": [
    {
-    "day": "11/17（二）",
+    "day": "12/1（二）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -680,7 +696,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/19（四）",
+    "day": "12/3（四）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -692,25 +708,27 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/21（六）",
+    "day": "12/5（六）",
     "hrs": "2 hr 30 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "📸 手繪基地分析圖（一）：日照、風向、動線",
+      "title": "📸 手繪 #6｜基地分析圖（一）",
       "hrs": "1.5 hr",
-      "detail": "標北向、夏至冬至太陽路徑、主要風向、周邊道路和人流。用色筆分色，拍照存檔。"
+      "detail": "【練】描基地輪廓、標北向；弧線畫太陽路徑、波浪箭頭畫風向、箭頭畫人車動線，每種資訊一個顏色。<br>【完成】一張分色清楚的分析圖，拍照存檔。",
+      "split": "全程自己練"
      },
      {
       "type": "cad",
-      "title": "CAD 基地平面圖",
+      "title": "AutoCAD #7｜應用：畫自己案子的基地",
       "hrs": "1 hr",
-      "detail": "畫基地邊界、道路、鄰房輪廓（灰色填充），比例 1:500。"
+      "detail": "【練】用學過的指令畫基地邊界、道路、鄰房輪廓（填灰），標上路名。AutoCAD 裡一律照真實尺寸畫。忘記怎麼做，回去翻平面圖系列。<br>【完成】看得出基地在哪、旁邊有什麼路和建築。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "11/22（日）",
+    "day": "12/6（日）",
     "hrs": "1 hr · 選做",
     "tasks": [
      {
@@ -727,26 +745,27 @@ const WEEKS = [
  },
  {
   "label": "W9",
-  "dateRange": "11/23 – 11/29",
+  "dateRange": "12/7 – 12/13",
   "phase": "暖機期 · 每週約 3.5 小時",
   "isModel": false,
   "totalHrs": "約 3 hr 30 min",
   "title": "基地分析完成：作品集第 3 頁",
   "days": [
    {
-    "day": "11/24（二）",
+    "day": "12/8（二）",
     "hrs": "30 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "基地分析圖（二）：視線與入口",
+      "title": "手繪 #7｜基地分析圖（二）",
       "hrs": "30 min",
-      "detail": "哪個方向景觀最好？人從哪裡進來？主要入口想放哪？畫下來。"
+      "detail": "【練】用扇形標最好的景觀方向，用星號標入口候選位置並寫理由。<br>【完成】看得出入口和主要面向。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "11/26（四）",
+    "day": "12/10（四）",
     "hrs": "30 min",
     "tasks": [
      {
@@ -758,7 +777,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/28（六）",
+    "day": "12/12（六）",
     "hrs": "2 hr 30 min",
     "tasks": [
      {
@@ -776,15 +795,16 @@ const WEEKS = [
     ]
    },
    {
-    "day": "11/29（日）",
+    "day": "12/13（日）",
     "hrs": "1 hr · 選做",
     "tasks": [
      {
-      "type": "draw",
-      "title": "自由手繪",
+      "type": "cad",
+      "title": "AutoCAD 加碼 B｜家具圖 第 3、4 集（選做）",
       "hrs": "1 hr",
-      "detail": "畫什麼都可以。",
-      "opt": true
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+2D+Furniture+Drawings+for+Interior+Design+3\" target=\"_blank\">AutoCAD 2D Furniture Drawings for Interior Design 3</a>（約 14 分）、<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+2D+Furniture+Drawings+for+Interior+Design+4\" target=\"_blank\">AutoCAD 2D Furniture Drawings for Interior Design 4</a>（約 25 分）　跟著影片同步操作，隨時暫停。<br>【練】關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。<br>【完成】有一組自己的家具圖塊。",
+      "opt": true,
+      "split": "看 39 分＋練 21 分"
      }
     ]
    }
@@ -793,14 +813,14 @@ const WEEKS = [
  },
  {
   "label": "W10",
-  "dateRange": "11/30 – 12/6",
+  "dateRange": "12/14 – 12/20",
   "phase": "暖機期 · 每週約 3.5 小時",
   "isModel": true,
   "totalHrs": "約 3 hr 30 min",
   "title": "無機能模型：用手玩空間",
   "days": [
    {
-    "day": "12/1（二）",
+    "day": "12/15（二）",
     "hrs": "30 min · 在家",
     "tasks": [
      {
@@ -812,7 +832,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "12/3（四）",
+    "day": "12/17（四）",
     "hrs": "30 min · 在家",
     "tasks": [
      {
@@ -824,7 +844,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "12/5（六）",
+    "day": "12/19（六）",
     "hrs": "2 hr 30 min",
     "tasks": [
      {
@@ -835,14 +855,15 @@ const WEEKS = [
      },
      {
       "type": "draw",
-      "title": "空間感受速寫",
+      "title": "手繪 #8｜限時速寫",
       "hrs": "30 min",
-      "detail": "看著模型，畫 2-3 張小速寫：人站在裡面會看到什麼？"
+      "detail": "【練】看著模型，每張限時 5 分鐘，畫 3 個角度，只抓大塊和明暗。<br>【完成】3 張速寫。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "12/6（日）",
+    "day": "12/20（日）",
     "hrs": "1 hr · 選做",
     "tasks": [
      {
@@ -859,14 +880,14 @@ const WEEKS = [
  },
  {
   "label": "W11",
-  "dateRange": "12/7 – 12/13",
+  "dateRange": "12/21 – 12/27",
   "phase": "🌿 緩衝週",
   "isModel": false,
   "totalHrs": "補做週",
   "title": "緩衝週：補做，或好好休息",
   "days": [
    {
-    "day": "12/8（二）",
+    "day": "12/22（二）",
     "hrs": "10 min · 10 分鐘就算數",
     "tasks": [
      {
@@ -878,7 +899,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "12/12（六）",
+    "day": "12/26（六）",
     "hrs": "1 hr 30 min · 選做",
     "tasks": [
      {
@@ -895,14 +916,14 @@ const WEEKS = [
  },
  {
   "label": "W12",
-  "dateRange": "12/14 – 12/20",
+  "dateRange": "12/28 – 1/3",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "概念成形：你的設計在說什麼",
   "days": [
    {
-    "day": "12/15（二）",
+    "day": "12/29（二）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -914,7 +935,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "12/17（四）",
+    "day": "12/31（四）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -926,25 +947,27 @@ const WEEKS = [
     ]
    },
    {
-    "day": "12/19（六）",
+    "day": "1/2（六）",
     "hrs": "3 hr",
     "tasks": [
      {
       "type": "draw",
-      "title": "📸 概念草圖：空間序列＋量體與地形",
+      "title": "📸 手繪 #9｜概念草圖",
       "hrs": "2 hr",
-      "detail": "人從入口進來會經歷什麼（先窄後寬？先暗後亮？）；建築怎麼落在地上。用一系列小剖面畫出來。"
+      "detail": "【練】4-6 個小剖面排一列，表現人走進建築的空間變化，每格寫一句感受；再畫一張建築落在地形上的剖面。<br>【完成】一張概念草圖，拍照存檔。",
+      "split": "全程自己練"
      },
      {
       "type": "cad",
-      "title": "CAD 配置圖：量體初稿",
+      "title": "AutoCAD #8｜應用：放建築量體",
       "hrs": "1 hr",
-      "detail": "在基地圖上畫出建築量體的位置和大小。"
+      "detail": "【練】用 REC 矩形畫出量體；DI 量量體到道路的距離；AREA 算量體面積 ÷ 基地面積（建蔽率）。<br>【完成】量體放好，寫下退縮距離和建蔽率。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "12/20（日）",
+    "day": "1/3（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -960,26 +983,27 @@ const WEEKS = [
  },
  {
   "label": "W13",
-  "dateRange": "12/21 – 12/27",
+  "dateRange": "1/4 – 1/10",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": true,
   "totalHrs": "約 5 hr 30 min",
   "title": "概念模型",
   "days": [
    {
-    "day": "12/22（二）",
+    "day": "1/5（二）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "平面配置手繪草圖",
+      "title": "手繪 #10｜平面配置草圖",
       "hrs": "45 min",
-      "detail": "徒手試 2-3 種平面配置，不用比例尺，先把想法畫出來。"
+      "detail": "【練】泡泡圖放下面、疊描圖紙，把泡泡改成方正的房間和牆。試 2-3 種配置。<br>【完成】選出一張配置。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "12/24（四）",
+    "day": "1/7（四）",
     "hrs": "45 min · 在家",
     "tasks": [
      {
@@ -991,7 +1015,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "12/26（六）",
+    "day": "1/9（六）",
     "hrs": "3 hr",
     "tasks": [
      {
@@ -1002,14 +1026,15 @@ const WEEKS = [
      },
      {
       "type": "draw",
-      "title": "入口透視草圖",
+      "title": "手繪 #11｜兩點透視入門",
       "hrs": "30 min",
-      "detail": "從人的視角看建築入口，畫一張草圖。"
+      "detail": "【看】<a href=\"https://www.youtube.com/watch?v=yqyGyjAqilE\" target=\"_blank\">Learn to Draw Buildings using Two-Point Perspective</a>（跟著畫，可暫停）　跟著影片同步操作，隨時暫停。<br>【練】用同樣方法畫你建築的入口：先畫最靠近你的那條垂直邊，上下兩端連到左右消點。<br>【完成】一張兩點透視的入口草圖。",
+      "split": "看 15 分＋練 15 分"
      }
     ]
    },
    {
-    "day": "12/27（日）",
+    "day": "1/10（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1025,26 +1050,26 @@ const WEEKS = [
  },
  {
   "label": "W14",
-  "dateRange": "12/28 – 1/3",
+  "dateRange": "1/11 – 1/17",
   "phase": "🌿 緩衝週",
   "isModel": false,
   "totalHrs": "補做週",
-  "title": "緩衝週：跨年，補做或休息",
+  "title": "緩衝週：補做，或好好休息",
   "days": [
    {
-    "day": "12/29（二）",
+    "day": "1/12（二）",
     "hrs": "10 min · 10 分鐘就算數",
     "tasks": [
      {
       "type": "port",
       "title": "回顧：這個月還有哪些沒打勾？",
       "hrs": "10 min",
-      "detail": "挑 1-2 件最重要的補。都做完就好好跨年。"
+      "detail": "挑 1-2 件最重要的補。都做完就好好休息。"
      }
     ]
    },
    {
-    "day": "1/2（六）",
+    "day": "1/16（六）",
     "hrs": "1 hr 30 min · 選做",
     "tasks": [
      {
@@ -1061,56 +1086,60 @@ const WEEKS = [
  },
  {
   "label": "W15",
-  "dateRange": "1/4 – 1/10",
+  "dateRange": "1/18 – 1/24",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "平面圖",
   "days": [
    {
-    "day": "1/5（二）",
+    "day": "1/19（二）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "cad",
-      "title": "CAD 一層平面：牆體＋柱子",
+      "title": "AutoCAD #9｜應用：一層平面（一）軸線、柱、牆",
       "hrs": "45 min",
-      "detail": "外牆 30cm、內牆 15cm，先畫大格局。比例 1:100。"
+      "detail": "【練】照平面圖系列的流程畫自己的案子：先畫柱心軸線，再放柱子，最後偏移出牆厚（外牆 30、內牆 15）。<br>【完成】一層的軸線、柱、牆到位。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "1/7（四）",
+    "day": "1/21（四）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "cad",
-      "title": "CAD 平面：門窗＋樓梯",
+      "title": "AutoCAD #10｜應用：一層平面（二）門窗、樓梯",
       "hrs": "45 min",
-      "detail": "加門的開啟方向、窗、樓梯、室內隔間，標空間名稱。"
+      "detail": "【練】把門、窗做成圖塊（B）重複插入（I）；樓梯先畫一階再用陣列（AR）複製。<br>【完成】平面上有門窗和樓梯。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "1/9（六）",
+    "day": "1/23（六）",
     "hrs": "3 hr",
     "tasks": [
      {
       "type": "cad",
-      "title": "📸 CAD 平面完成＋尺寸標註",
+      "title": "📸 AutoCAD #11｜應用：尺寸標註",
       "hrs": "2 hr",
-      "detail": "標總尺寸和各空間尺寸。平面是整套圖的基礎，這張完成後面都快了。"
+      "detail": "【練】外圍由內到外標三道尺寸：開口細部、軸線間距、總長（DLI 標第一段、DCO 連續標）。每個空間寫上名稱。<br>【完成】平面四邊都有尺寸、空間都有名稱。截圖存檔。",
+      "split": "全程自己練"
      },
      {
       "type": "draw",
-      "title": "剖面透視練習",
+      "title": "手繪 #12｜剖面透視",
       "hrs": "1 hr",
-      "detail": "把建築剖開、同時畫出透視的空間感。先練一張簡單的。"
+      "detail": "【練】剖面當作前景，中間點一個消點，從剖面各角往消點拉線，空間就往後延伸。剖到的牆塗深。<br>【完成】一張剖面透視。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "1/10（日）",
+    "day": "1/24（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1126,151 +1155,22 @@ const WEEKS = [
  },
  {
   "label": "W16",
-  "dateRange": "1/11 – 1/17",
+  "dateRange": "1/25 – 1/31",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "剖面與立面",
   "days": [
    {
-    "day": "1/12（二）",
-    "hrs": "45 min",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "CAD 剖面圖（一）",
-      "hrs": "45 min",
-      "detail": "選最能說明概念的位置剖開：剖到的牆粗線，看到的空間細線，標樓板高度。"
-     }
-    ]
-   },
-   {
-    "day": "1/14（四）",
-    "hrs": "45 min",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "CAD 剖面圖（二）",
-      "hrs": "45 min",
-      "detail": "畫另一個方向的剖面。"
-     }
-    ]
-   },
-   {
-    "day": "1/16（六）",
-    "hrs": "3 hr",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "📸 CAD 立面圖 ×2",
-      "hrs": "2 hr",
-      "detail": "正立面＋側立面：高度、開口、屋頂線、地面線。"
-     },
-     {
-      "type": "draw",
-      "title": "手繪剖面加人影",
-      "hrs": "1 hr",
-      "detail": "在剖面裡加站著的人、家具輪廓、深淺明暗。有人影的剖面說服力完全不同。"
-     }
-    ]
-   },
-   {
-    "day": "1/17（日）",
-    "hrs": "1 hr · 做完就休息",
-    "tasks": [
-     {
-      "type": "draw",
-      "title": "室內立面手繪",
-      "hrs": "1 hr",
-      "detail": "選重要室內空間的一面牆：門窗、材質分層、天花板線。"
-     }
-    ]
-   }
-  ],
-  "id": 15
- },
- {
-  "label": "W17",
-  "dateRange": "1/18 – 1/24",
-  "phase": "穩定期 · 每週約 5.5 小時",
-  "isModel": false,
-  "totalHrs": "約 5 hr 30 min",
-  "title": "配置圖＋室內細部",
-  "days": [
-   {
-    "day": "1/19（二）",
-    "hrs": "45 min",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "CAD 配置圖完整版（一）",
-      "hrs": "45 min",
-      "detail": "建築量體、道路、基地邊界。"
-     }
-    ]
-   },
-   {
-    "day": "1/21（四）",
-    "hrs": "45 min",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "CAD 配置圖完整版（二）",
-      "hrs": "45 min",
-      "detail": "加景觀、戶外空間、入口，說明建築和環境的關係。"
-     }
-    ]
-   },
-   {
-    "day": "1/23（六）",
-    "hrs": "3 hr",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "📸 天花板圖（RCP）＋一張細部詳圖",
-      "hrs": "2 hr",
-      "detail": "RCP 標燈具、空調、天花高低；再挑一個重點細部畫 1:20 詳圖。室內設計公司很看這種圖。"
-     },
-     {
-      "type": "port",
-      "title": "材料板",
-      "hrs": "1 hr",
-      "detail": "外部材料 1-2 種、室內 2-3 種，Canva 拼成一張，每種寫一句選用理由。"
-     }
-    ]
-   },
-   {
-    "day": "1/24（日）",
-    "hrs": "1 hr · 做完就休息",
-    "tasks": [
-     {
-      "type": "cad",
-      "title": "所有 CAD 圖統一格式",
-      "hrs": "1 hr",
-      "detail": "圖層命名、線型粗細、字型、圖框統一。"
-     }
-    ]
-   }
-  ],
-  "id": 16
- },
- {
-  "label": "W18",
-  "dateRange": "1/25 – 1/31",
-  "phase": "穩定期 · 每週約 5.5 小時",
-  "isModel": false,
-  "totalHrs": "約 5 hr 30 min",
-  "title": "SketchUp 建模",
-  "days": [
-   {
     "day": "1/26（二）",
     "hrs": "45 min",
     "tasks": [
      {
-      "type": "sku",
-      "title": "SketchUp：匯入 CAD，建基地＋量體",
+      "type": "cad",
+      "title": "AutoCAD #12｜剖面 第 1 集",
       "hrs": "45 min",
-      "detail": "匯入 DWG，做地形高差，把建築拉出高度。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+House+Section+Drawing+Tutorial+1+of+3\" target=\"_blank\">AutoCAD House Section Drawing Tutorial 1 of 3</a>（約 18 分）　跟著影片同步操作，隨時暫停。<br>【練】關掉影片，自己從頭重做一次影片做到的進度；卡住才回去查。時間夠的話，開始用同樣方法畫你自己案子的剖面。<br>【完成】跟上影片第 1 集的進度。",
+      "split": "看 18 分＋練 27 分"
      }
     ]
    },
@@ -1279,10 +1179,11 @@ const WEEKS = [
     "hrs": "45 min",
     "tasks": [
      {
-      "type": "sku",
-      "title": "SketchUp：開口＋材質",
+      "type": "cad",
+      "title": "AutoCAD #13｜剖面 第 2、3 集",
       "hrs": "45 min",
-      "detail": "開門窗、做屋頂，套上真實材質貼圖。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+House+Section+Drawing+Tutorial+2+of+3\" target=\"_blank\">AutoCAD House Section Drawing Tutorial 2 of 3</a>（約 10 分）、<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+House+Section+Drawing+Tutorial+3+of+3\" target=\"_blank\">AutoCAD House Section Drawing Tutorial 3 of 3</a>（約 11 分）　跟著影片同步操作，隨時暫停。<br>【練】看完後，用同樣方法完成你自己案子的兩張剖面。<br>【完成】兩張剖面完成。",
+      "split": "看 22 分＋練 23 分"
      }
     ]
    },
@@ -1291,16 +1192,18 @@ const WEEKS = [
     "hrs": "3 hr",
     "tasks": [
      {
-      "type": "sku",
-      "title": "📸 SketchUp 室內空間建模＋截圖",
+      "type": "cad",
+      "title": "📸 AutoCAD #14｜立面",
       "hrs": "2 hr",
-      "detail": "重要室內空間做細部：天花板、地板、家具、燈具，截幾張好看的角度。"
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+AutoCAD+House+Elevation+Tutorial\" target=\"_blank\">AutoCAD House Elevation Tutorial</a>（約 16 分）　跟著影片同步操作，隨時暫停。<br>【練】照影片的方法，畫你案子的正立面和側立面。<br>【完成】兩張立面完成。截圖存檔。",
+      "split": "看 15 分＋練 1 hr 45 分"
      },
      {
-      "type": "sku",
-      "title": "輸出外觀截圖",
+      "type": "draw",
+      "title": "手繪 #13｜剖面加人影",
       "hrs": "1 hr",
-      "detail": "鳥瞰、人視角、入口，調好陰影，輸出高解析度。"
+      "detail": "【練】加 3-4 個簡化的人（1.7m），剖到的牆塗黑，空間用深淺表現明暗。<br>【完成】剖面裡有人、有明暗。",
+      "split": "全程自己練"
      }
     ]
    },
@@ -1310,17 +1213,18 @@ const WEEKS = [
     "tasks": [
      {
       "type": "draw",
-      "title": "外觀透視草圖",
+      "title": "手繪 #14｜室內立面",
       "hrs": "1 hr",
-      "detail": "從最能表現設計特色的角度畫一張，之後要畫成完稿。"
+      "detail": "【練】先打比例格（1 格＝50cm），畫牆、門窗、天花線；木紋、磚、石材用不同線條表現。<br>【完成】一張有比例和材料的立面。",
+      "split": "全程自己練"
      }
     ]
    }
   ],
-  "id": 17
+  "id": 15
  },
  {
-  "label": "W19",
+  "label": "W17",
   "dateRange": "2/1 – 2/14",
   "phase": "🌿 過年＋緩衝",
   "isModel": false,
@@ -1353,18 +1257,157 @@ const WEEKS = [
     ]
    }
   ],
+  "id": 16
+ },
+ {
+  "label": "W18",
+  "dateRange": "2/15 – 2/21",
+  "phase": "穩定期 · 每週約 5.5 小時",
+  "isModel": false,
+  "totalHrs": "約 5 hr 30 min",
+  "title": "配置圖＋室內細部",
+  "days": [
+   {
+    "day": "2/16（二）",
+    "hrs": "45 min",
+    "tasks": [
+     {
+      "type": "cad",
+      "title": "AutoCAD #15｜應用：配置圖完整版（一）",
+      "hrs": "45 min",
+      "detail": "【練】把一層平面外框放進基地圖，標入口和戶外空間。<br>【完成】看得出建築和基地的關係。",
+      "split": "全程自己練"
+     }
+    ]
+   },
+   {
+    "day": "2/18（四）",
+    "hrs": "45 min",
+    "tasks": [
+     {
+      "type": "cad",
+      "title": "AutoCAD #16｜應用：配置圖完整版（二）",
+      "hrs": "45 min",
+      "detail": "【練】加景觀（樹做成圖塊）、鋪面填充、北向箭頭和比例尺。<br>【完成】配置圖看起來像正式圖面。",
+      "split": "全程自己練"
+     }
+    ]
+   },
+   {
+    "day": "2/20（六）",
+    "hrs": "3 hr",
+    "tasks": [
+     {
+      "type": "cad",
+      "title": "📸 AutoCAD #17｜應用：天花板圖＋詳圖",
+      "hrs": "2 hr",
+      "detail": "【練】RCP：複製平面只留牆，畫燈具圖塊、標天花高度。詳圖：挑一個細節以 1:20 畫，用 MLD 拉引線寫材料。<br>【完成】一張 RCP、一張詳圖。截圖存檔。",
+      "split": "全程自己練"
+     },
+     {
+      "type": "port",
+      "title": "材料板",
+      "hrs": "1 hr",
+      "detail": "外部材料 1-2 種、室內 2-3 種，Canva 拼成一張，每種寫一句選用理由。"
+     }
+    ]
+   },
+   {
+    "day": "2/21（日）",
+    "hrs": "1 hr · 做完就休息",
+    "tasks": [
+     {
+      "type": "cad",
+      "title": "AutoCAD #18｜應用：統一格式",
+      "hrs": "1 hr",
+      "detail": "【練】所有圖的圖層、線粗、字型、標註樣式統一；最後用 PURGE 清掉沒用到的東西。<br>【完成】整套圖風格一致。",
+      "split": "全程自己練"
+     }
+    ]
+   }
+  ],
+  "id": 17
+ },
+ {
+  "label": "W19",
+  "dateRange": "2/22 – 2/28",
+  "phase": "穩定期 · 每週約 5.5 小時",
+  "isModel": false,
+  "totalHrs": "約 5 hr 30 min",
+  "title": "SketchUp 建模",
+  "days": [
+   {
+    "day": "2/23（二）",
+    "hrs": "45 min",
+    "tasks": [
+     {
+      "type": "sku",
+      "title": "SketchUp #3｜蓋房子 第 1 集＋匯入自己的案子",
+      "hrs": "45 min",
+      "detail": "【看】<a href=\"https://www.youtube.com/results?search_query=CAD+CAM+Tutorials+SketchUp+House+Tutorial+for+Beginners+1\" target=\"_blank\">SketchUp House Tutorial for Beginners 1</a>（約 14 分）　跟著影片同步操作，隨時暫停。<br>【練】隔了很久，先花 5 分鐘重做 #2。再「檔案 → 匯入」你的 CAD 配置圖，照影片的方法拉出量體。<br>【完成】你的建築量體立在基地上。",
+      "split": "看 14 分＋練 31 分"
+     }
+    ]
+   },
+   {
+    "day": "2/25（四）",
+    "hrs": "45 min",
+    "tasks": [
+     {
+      "type": "sku",
+      "title": "SketchUp #4｜開口＋材質",
+      "hrs": "45 min",
+      "detail": "【看】到 <a href=\"https://www.youtube.com/@Thesketchupessentials/search?query=materials\" target=\"_blank\">The SketchUp Essentials</a> 頻道搜尋「materials」或「paint bucket」，挑一支 10 分鐘內的。　跟著影片同步操作，隨時暫停。<br>【練】在量體上開窗；用 B 油漆桶上材質，從網路下載磚、清水模、木紋貼圖匯入。<br>【完成】外觀有開口和至少 3 種材質。",
+      "split": "看 10 分＋練 35 分"
+     }
+    ]
+   },
+   {
+    "day": "2/27（六）",
+    "hrs": "3 hr",
+    "tasks": [
+     {
+      "type": "sku",
+      "title": "📸 SketchUp #5｜室內建模",
+      "hrs": "2 hr",
+      "detail": "【看】到 <a href=\"https://www.youtube.com/@Thesketchupessentials/search?query=section%20plane\" target=\"_blank\">The SketchUp Essentials</a> 頻道搜尋「section plane」和「scenes」，各看一支。　跟著影片同步操作，隨時暫停。<br>【練】用剖切面切開看室內，從 3D Warehouse 擺家具燈具，調好人視角後存成場景（至少 3 個）。<br>【完成】3 張室內截圖，存進相簿。",
+      "split": "看 20 分＋練 1 hr 40 分"
+     },
+     {
+      "type": "sku",
+      "title": "SketchUp #6｜陰影＋輸出",
+      "hrs": "1 hr",
+      "detail": "【看】到 <a href=\"https://www.youtube.com/@Thesketchupessentials/search?query=shadows%20export\" target=\"_blank\">The SketchUp Essentials</a> 頻道搜尋「shadows」和「export」。　跟著影片同步操作，隨時暫停。<br>【練】開陰影調時間，改風格（線條、背景），外觀存成場景，匯出寬度 3000px 以上的圖。<br>【完成】3 張外觀圖。",
+      "split": "看 15 分＋練 45 分"
+     }
+    ]
+   },
+   {
+    "day": "2/28（日）",
+    "hrs": "1 hr · 做完就休息",
+    "tasks": [
+     {
+      "type": "draw",
+      "title": "手繪 #15｜外觀透視草圖",
+      "hrs": "1 hr",
+      "detail": "【練】用兩點透視畫 2-3 個角度的小草圖，選最好的一張。忘記方法就回看 #11 的影片。<br>【完成】選定完稿角度。",
+      "split": "全程自己練"
+     }
+    ]
+   }
+  ],
   "id": 18
  },
  {
   "label": "W20",
-  "dateRange": "2/15 – 2/21",
+  "dateRange": "3/1 – 3/7",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": true,
   "totalHrs": "約 5 hr 30 min",
   "title": "設計發展模型",
   "days": [
    {
-    "day": "2/16（二）",
+    "day": "3/2（二）",
     "hrs": "45 min · 在家",
     "tasks": [
      {
@@ -1376,7 +1419,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "2/18（四）",
+    "day": "3/4（四）",
     "hrs": "45 min · 在家",
     "tasks": [
      {
@@ -1388,7 +1431,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "2/20（六）",
+    "day": "3/6（六）",
     "hrs": "3 hr",
     "tasks": [
      {
@@ -1400,7 +1443,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "2/21（日）",
+    "day": "3/7（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1416,57 +1459,61 @@ const WEEKS = [
  },
  {
   "label": "W21",
-  "dateRange": "2/22 – 2/28",
+  "dateRange": "3/8 – 3/14",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "手繪完稿：你的亮點",
   "days": [
    {
-    "day": "2/23（二）",
+    "day": "3/9（二）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "外觀透視完稿（一）：鉛筆稿",
+      "title": "手繪 #16｜外觀完稿：鉛筆稿",
       "hrs": "45 min",
-      "detail": "把 W18 的草圖放大，打好鉛筆稿。"
+      "detail": "【練】A3 紙打視平線和消點，把草圖放大，加人和樹。<br>【完成】乾淨的鉛筆稿。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "2/25（四）",
+    "day": "3/11（四）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "外觀透視完稿（二）：代針筆上線",
+      "title": "手繪 #17｜外觀完稿：上線",
       "hrs": "45 min",
-      "detail": "輪廓用 0.5mm，材質紋路用 0.1mm。"
+      "detail": "【練】輪廓 0.5mm、開口 0.3mm、材質和遠景 0.1mm，墨乾後擦鉛筆。<br>【完成】看得出前後層次。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "2/27（六）",
+    "day": "3/13（六）",
     "hrs": "3 hr",
     "tasks": [
      {
       "type": "draw",
-      "title": "📸 外觀透視完稿＋室內透視局部上色",
+      "title": "📸 手繪 #18｜完稿＋局部上色",
       "hrs": "3 hr",
-      "detail": "外觀透視收尾；再畫一張室內透視，只對重點材料上色、其他留線稿——更專業也更快。"
+      "detail": "【練】外觀收尾，再畫一張室內透視；先用灰色麥克筆打陰影，只對 1-2 種重點材料上色。<br>【完成】兩張完稿，拍照存檔。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "2/28（日）",
+    "day": "3/14（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
       "type": "draw",
-      "title": "剖面透視完稿：鉛筆稿",
+      "title": "手繪 #19｜剖面透視完稿：鉛筆稿",
       "hrs": "1 hr",
-      "detail": "正式版剖面透視先打鉛筆稿。"
+      "detail": "【練】用你案子的剖面在 A3 打鉛筆稿，加人、家具和光線方向。<br>【完成】鉛筆稿完成。",
+      "split": "全程自己練"
      }
     ]
    }
@@ -1475,56 +1522,60 @@ const WEEKS = [
  },
  {
   "label": "W22",
-  "dateRange": "3/1 – 3/7",
+  "dateRange": "3/15 – 3/21",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "素材總整理",
   "days": [
    {
-    "day": "3/2（二）",
+    "day": "3/16（二）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "剖面透視完稿：上線",
+      "title": "手繪 #20｜剖面透視完稿：上線",
       "hrs": "45 min",
-      "detail": "剖到的牆塗深，空間細線，加人影和光線。"
+      "detail": "【練】上線，剖到的牆和樓板塗黑，用灰色麥克筆表現深淺和光線。<br>【完成】剖面透視完稿。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "3/4（四）",
+    "day": "3/18（四）",
     "hrs": "45 min",
     "tasks": [
      {
       "type": "draw",
-      "title": "所有手繪掃描／拍照",
+      "title": "手繪 #21｜掃描整理",
       "hrs": "45 min",
-      "detail": "光線均勻、對正，調亮度後分類存好。"
+      "detail": "【練】白天自然光、紙放平、手機正上方拍，修圖讓背景變白、對比拉高。<br>【完成】所有手繪都有乾淨的電子檔。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "3/6（六）",
+    "day": "3/20（六）",
     "hrs": "3 hr",
     "tasks": [
      {
       "type": "cad",
-      "title": "📸 CAD 全套圖面出 PDF",
+      "title": "📸 AutoCAD #19｜出圖成 PDF",
       "hrs": "2 hr",
-      "detail": "逐張檢查線型、比例尺、圖名，統一圖框輸出——你的「案子1 圖面包」。"
+      "detail": "【看】到 YouTube 搜尋 <a href=\"https://www.youtube.com/results?search_query=AutoCAD+layout+plot+to+PDF+tutorial\" target=\"_blank\">AutoCAD layout plot to PDF</a>，挑一支 15 分鐘內的。　跟著影片同步操作，隨時暫停。<br>【練】切到配置（Layout）頁、放圖框、開視埠設比例，用 PLOT 選「DWG To PDF」逐張輸出。<br>【完成】一份完整的「案子1 圖面包」PDF。",
+      "split": "看 15 分＋練 1 hr 45 分"
      },
      {
       "type": "sku",
-      "title": "SketchUp 最終截圖",
+      "title": "SketchUp #7｜最終截圖",
       "hrs": "1 hr",
-      "detail": "挑出最終版截圖，備份到雲端。"
+      "detail": "【練】所有場景套同一風格和陰影，逐一重新匯出，備份到雲端。<br>【完成】最終版 3D 圖全部到位。",
+      "split": "全程自己練"
      }
     ]
    },
    {
-    "day": "3/7（日）",
+    "day": "3/21（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1540,14 +1591,14 @@ const WEEKS = [
  },
  {
   "label": "W23",
-  "dateRange": "3/8 – 3/14",
+  "dateRange": "3/22 – 3/28",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "作品集A 組裝",
   "days": [
    {
-    "day": "3/9（二）",
+    "day": "3/23（二）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -1559,7 +1610,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/11（四）",
+    "day": "3/25（四）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -1571,7 +1622,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/13（六）",
+    "day": "3/27（六）",
     "hrs": "3 hr",
     "tasks": [
      {
@@ -1583,7 +1634,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/14（日）",
+    "day": "3/28（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1599,14 +1650,14 @@ const WEEKS = [
  },
  {
   "label": "W24",
-  "dateRange": "3/15 – 3/21",
+  "dateRange": "3/29 – 4/4",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "作品集A 完成",
   "days": [
    {
-    "day": "3/16（二）",
+    "day": "3/30（二）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -1618,7 +1669,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/18（四）",
+    "day": "4/1（四）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -1630,7 +1681,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/20（六）",
+    "day": "4/3（六）",
     "hrs": "3 hr",
     "tasks": [
      {
@@ -1648,7 +1699,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/21（日）",
+    "day": "4/4（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1664,14 +1715,14 @@ const WEEKS = [
  },
  {
   "label": "W25",
-  "dateRange": "3/22 – 3/28",
+  "dateRange": "4/5 – 4/11",
   "phase": "穩定期 · 每週約 5.5 小時",
   "isModel": false,
   "totalHrs": "約 5 hr 30 min",
   "title": "作品集B＋投遞準備",
   "days": [
    {
-    "day": "3/23（二）",
+    "day": "4/6（二）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -1683,7 +1734,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/25（四）",
+    "day": "4/8（四）",
     "hrs": "45 min",
     "tasks": [
      {
@@ -1695,7 +1746,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/27（六）",
+    "day": "4/10（六）",
     "hrs": "3 hr",
     "tasks": [
      {
@@ -1707,7 +1758,7 @@ const WEEKS = [
     ]
    },
    {
-    "day": "3/28（日）",
+    "day": "4/11（日）",
     "hrs": "1 hr · 做完就休息",
     "tasks": [
      {
@@ -1723,7 +1774,7 @@ const WEEKS = [
  },
  {
   "label": "W26+",
-  "dateRange": "3/29 起",
+  "dateRange": "4/12 起",
   "phase": "求職期 · 每週約 4 小時",
   "isModel": false,
   "totalHrs": "約 4 hr",
@@ -1753,9 +1804,10 @@ const WEEKS = [
      },
      {
       "type": "draw",
-      "title": "面試手繪模擬",
+      "title": "手繪 #22｜面試手繪模擬",
       "hrs": "1 hr",
-      "detail": "計時 20 分鐘畫平面草圖＋透視草圖，練習邊說邊畫。"
+      "detail": "【練】計時 20 分鐘：自訂題目，畫平面草圖＋一張透視，邊畫邊說明。<br>【完成】時間內畫完並說得出理由。",
+      "split": "全程自己練"
      }
     ]
    },
@@ -1832,7 +1884,7 @@ function renderToday(){
     });
   });
   if(!found){
-    if(now<new Date(2027,2,29)){
+    if(now<new Date(2027,3,12)){
       el.style.display='block';
       el.innerHTML='<div class="today-hdr"><span class="today-title">🌿 今天沒有排任務</span></div><div class="rest-msg">休息也是計畫的一部分。好好放鬆，不用有罪惡感。</div>';
     } else {el.style.display='none';el.innerHTML='';}
@@ -1847,7 +1899,7 @@ function renderToday(){
     const dn=isDone(wi,di,ti);
     html+=`<div class="today-task">
       <span class="ttag ${TAG_CLS[t.type]}">${TAG_MAP[t.type]}</span>
-      <span class="tt-title${dn?' tdone':''}">${t.title} <span class="tt-hrs">· ${t.opt?'選做 · ':''}${t.hrs}</span></span>
+      <span class="tt-title${dn?' tdone':''}">${t.title} <span class="tt-hrs">· ${t.opt?'選做 · ':''}${t.split||t.hrs}</span></span>
       <div class="ck${dn?' done':''}" style="width:20px;height:20px;font-size:10px;" onclick="toggle(${wi},${di},${ti})">${dn?'✓':''}</div>
     </div>`;
   });
@@ -1948,7 +2000,7 @@ function renderWeek(wIdx){
           <span class="ttag ${TAG_CLS[task.type]}">${TAG_MAP[task.type]}</span>
           <div class="tc-info">
             <div class="tc-title">${task.title}</div>
-            <div class="tc-hrs">⏱ ${task.opt?"選做 · ":"目標 "}${task.hrs}</div>
+            <div class="tc-hrs">⏱ ${task.opt?"選做 · ":"目標 "}${task.hrs}${task.split?"（"+task.split+"）":""}</div>
           </div>
           <div class="ck${done?' done':''}" onclick="event.stopPropagation();toggle(${wIdx},${di},${ti})">${done?'✓':''}</div>
         </div>
@@ -2142,13 +2194,27 @@ function switchPage(p){
 
 function renderOverview(){
   const months=[
-    {label:"十月 · 啟動期（每週約 2 小時）",range:[0,3]},
-    {label:"十一月 · 暖機期（每週約 3.5 小時）",range:[4,10]},
-    {label:"十二月–一月 · 設計發展（每週約 5.5 小時）",range:[11,17]},
-    {label:"二月–三月 · 模型、完稿、作品集",range:[18,24]},
-    {label:"三月底起 · 求職",range:[25,25]},
+    {label:"十月中–十一月初 · 啟動期（每週約 2 小時）",range:[0,3]},
+    {label:"十一月–十二月 · 暖機期（每週約 3.5 小時）",range:[4,10]},
+    {label:"十二月底–二月 · 設計發展（每週約 5.5 小時，含過年）",range:[11,18]},
+    {label:"二月底–四月 · 完稿與作品集",range:[19,24]},
+    {label:"四月中起 · 求職",range:[25,25]},
   ];
   const c=document.getElementById('ov-content');c.innerHTML='';
+  const tracks=[['cad','🖥 AutoCAD 路線'],['sku','🧊 SketchUp 路線'],['draw','✏️ 手繪路線']];
+  const rm=document.createElement('div');rm.className='mo-sec';
+  rm.innerHTML='<div class="mo-lbl">技能路線 · 照編號順序做，不用管日期</div>';
+  tracks.forEach(([tp,lbl])=>{
+    const box=document.createElement('div');box.className='ov-row';box.style.flexDirection='column';box.style.alignItems='stretch';box.style.cursor='default';
+    let h=`<div class="ov-t" style="margin-bottom:4px">${lbl}</div>`;
+    WEEKS.forEach((w,wi)=>w.days.forEach((d,di)=>d.tasks.forEach((t,ti)=>{
+      if(t.type!==tp||!/[#加碼]/.test(t.title)) return;
+      const dn=isDone(wi,di,ti);
+      h+=`<div class="ov-s" style="padding:3px 0;cursor:pointer;${dn?'text-decoration:line-through;opacity:.55':''}" onclick="curWeek=${wi};renderWeek(${wi});switchPage('tracker');updateDots();scrollDot(${wi});">${dn?'✓':'○'} ${t.title.replace('📸 ','')}　<span style="color:var(--text3)">${d.day.split('（')[0]}${t.split?' · '+t.split:''}</span></div>`;
+    })));
+    box.innerHTML=h;rm.appendChild(box);
+  });
+  c.appendChild(rm);
   months.forEach(m=>{
     const sec=document.createElement('div');sec.className='mo-sec';
     sec.innerHTML=`<div class="mo-lbl">${m.label}</div>`;
